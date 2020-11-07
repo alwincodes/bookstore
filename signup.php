@@ -1,7 +1,7 @@
 <?php require "templates/loginnav.php" ?>
 <body id="bodylogin">
  <div id="login">
-    <form action="" method="post">
+    <form action="backend/signup.inc.php" method="post">
     <div class ="inputfield">
     <h1>Sign Up</h1>
         <input type="text" name="first name" placeholder="First name" class="login_text">
@@ -18,5 +18,4 @@
     </div>
     </form>
  </div>
-</body>
-</html>
+ <?php require "templates/footer.php" ?>

@@ -11,5 +11,4 @@
      </div>
     </form>
  </div>
-</body>
-</html>
+<?php require "templates/footer.php" ?>
