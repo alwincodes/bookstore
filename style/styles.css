@@ -1,0 +1,88 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+#bodylogin{
+  background-color: rgb(255, 255, 255);
+}
+
+.inputfield{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+.login_text{
+    margin:0 auto;
+    width:300px;
+    border-radius:30px;
+    border:1px solid #b1afaf;
+    height:45px;
+    padding-left: 20px;
+    width:300px;
+    font-size:16px;
+    outline: none;
+    margin: 8px;
+  }
+  .login_text:hover{
+    box-shadow: 1px 1px 8px 1px #dcdcdc;
+  }
+  .login_text:focus-within{
+    box-shadow: 1px 1px 8px 1px #dcdcdc;
+    outline:none;
+  }
+  .button{
+    background-color: #4C8FFB;
+    border:none;
+    color:rgb(255, 255, 255);
+    font-size:15px;
+    padding: 10px 20px;
+    margin:5px;
+    border-radius:5px;
+    outline:none;
+    cursor: pointer
+  }
+  .button:hover{
+    border: 1px solid #000000;
+    padding: 9px 19px;
+    color:#000000;
+  }
+  .button:focus{
+    border:1px solid #4885ed;
+    padding: 9px 19px;
+  }
+  ul {
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+  }
+  
+  li {
+    float: right;
+    font-weight: bold;
+  }
+  #navlinks{
+    text-decoration: none;
+    color: #000;
+  }
+  li a {
+    color: #000;
+    display: block;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size:18px;
+  }
+  li a:hover {
+    text-decoration: underline;
+  }
+
+  hr{
+      margin: 0;
+  }
+  /* the above code is for styling login and 
+  signup pages*/
