@@ -4,7 +4,7 @@
     <form action="backend/signup.inc.php" method="post">
     <div class ="inputfield">
     <h1>Sign Up</h1>
-        <input type="text" name="first name" placeholder="First name" class="login_text">
+        <input type="text" name="firstname" placeholder="First name" class="login_text">
         <input type="text" name="lastname" placeholder="Last name" class="login_text">
         <input type="text" name="username" placeholder="Username" class="login_text">
         <input type="text" name="email" placeholder="Email" class="login_text">
