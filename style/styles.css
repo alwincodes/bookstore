@@ -12,12 +12,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 91vh;
     flex-wrap: wrap;
     flex-direction: column;
     width: 70%;
     margin: auto;
     text-align: center;
+}
+.inputfield > h1 {
+  margin: 0% 0%;
 }
 .login_text{
     margin:0 auto;
@@ -104,6 +107,18 @@
   }
   .flinks{
     padding: 0px 7px;
+  }
+  .error{
+    color: rgb(238, 111, 65);
+  }
+  .success{
+    color: rgb(28, 128, 28);
+  }
+  .error > p{
+    margin: 2% 0%;
+  }
+  .success > p{
+    margin: 2% 0%;
   }
   /* the above code is for styling login and 
   signup pages*/

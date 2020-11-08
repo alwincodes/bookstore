@@ -14,6 +14,36 @@
         <input type="password" name="rpassword" placeholder="Re-enter Password" class="login_text" id="pass2">
         </div>
         <div style="font-size:small;">Show Password <input type="checkbox" onclick="showPassSignup()"></div> 
+        <div class = "error">
+        <?php
+         if(isset($_GET["error"])){
+           if($_GET["error"]=="emptyinput"){
+              echo("<p> Fill in all fields </p>");
+            }
+           if($_GET["error"]=="invaliduid"){
+        echo("<p> Invalid uid </p>");
+            }
+            if($_GET["error"]=="invalidname"){
+                echo("<p> Enter a correct name </p>");
+            }
+            if($_GET["error"]=="invalidemail"){
+                echo("<p> Invalid Email </p>");
+            }
+            if($_GET["error"]=="invalidphoneno"){
+                echo("<p> Invalid Phone no </p>");
+            }
+            if($_GET["error"]=="passwordsdontmatch"){
+                echo("<p> both passwords don't match </p>");
+            }
+            if($_GET["error"]=="usernametaken"){
+                echo("<p> User name already in use </p>");
+            }
+            if($_GET["error"]=="stmtfailed"){
+                echo("<p> Sql error </p>");
+            }
+          }
+        ?>
+        </div>
         <input type="submit" class="button" name="signup" value="Sign-up">
     </div>
     </form>

@@ -1,4 +1,5 @@
 <?php
+//sign up validation functions
 function emptyInputSignup($fname,$lname,$uname,$email,$phno,$pass,$rpass){
     $result;
     if(empty($fname) || empty($lname) || empty($uname) || empty($email) || empty($phno) || empty($pass) || empty($rpass)){
@@ -64,7 +65,7 @@ function pwdMatch($pass,$rpass){
   }
   return $result;
 }
-
+// this fn return associative array if uname exists else it returns false
 function uidExist($uname,$email,$conn){
   $sql = "SELECT * FROM users WHERE usersId = ? OR email = ?;";
   $stmt = mysqli_stmt_init($conn);
@@ -84,6 +85,7 @@ function uidExist($uname,$email,$conn){
     $result = false;
     return $result;
   }
+  return $result;
   mysqli_stmt_close($stmt);
 }
 
@@ -98,5 +100,39 @@ function createUser($conn,$fname,$lname,$uname,$email,$phno,$pass){
   mysqli_stmt_bind_param($stmt,"ssssss",$uname,$fname,$lname,$email,$phno,$hashedpwd);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
-  header("location:../index.php?error=none");
+  header("location:../index.php?error=signupdone");
+}
+
+//code to validate and login users
+
+function emptyInputLogin($username,$password){
+  $result;
+  if(empty($username) || empty($password)){
+   $result = true;
+  }
+  else{
+   $result = false;
+  }
+  return $result;
+}
+
+function loginUser($conn,$username,$password){
+  $uidExists = uidExist($username,$username,$conn);
+   if($uidExists === false){
+    header("location:../index.php?error=invalidlogin");
+    exit();
+  }
+  $pwdhashed = $uidExists["userpass"];
+  $checkPwd = password_verify($password,$pwdhashed);
+  if($checkpwd === false){
+    header("location:../index.php?error=invalidlogin2");
+    exit();
+  }
+  else if($checkpwd === true){
+     session_start();
+     $_SESSION["uid"] = $uidExists["usersId"];
+     $_SESSION["username"] = $uidExists["username"];
+     header("location:../index.php?error=loginsuccess");
+     exit();
+  }
 }
