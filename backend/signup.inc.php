@@ -21,15 +21,23 @@ if(isset($_POST["signup"])){
     header("location:../signup.php?error=invaliduid");
     exit();
    }
+   if(invalidname($fname,$lname) !== false){
+    header("location:../signup.php?error=invalidname");
+    exit();
+   }
    if(invalidEmail($email) !== false){
     header("location:../signup.php?error=invalidemail");
+    exit();
+   }
+   if(invalidPhno($phno)!== false){
+    header("location:../signup.php?error=invalidphoneno");
     exit();
    }
    if(pwdMatch($pass,$rpass) !== false){
     header("location:../signup.php?error=passwordsdontmatch");
     exit();
    }
-   if(uidExist($uname,$conn) !== false){
+   if(uidExist($uname,$email,$conn) !== false){
     header("location:../signup.php?error=usernametaken");
     exit();
    }

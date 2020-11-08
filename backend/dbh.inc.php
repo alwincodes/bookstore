@@ -2,7 +2,7 @@
 $servername="localhost";
 $dbuname="root";
 $dbpassword="";
-$dbname="bookstore"
+$dbname="bookstore";
 //connectin to the database
 $conn = mysqli_connect($servername,$dbuname,$dbpassword,$dbname);
 //checking if connection fails
