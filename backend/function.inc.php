@@ -126,7 +126,7 @@ function loginUser($conn,$username,$password){
   $checkPwd = password_verify($password, $pwdhashed);
 
   if($checkPwd === false){
-    header("location:../index.php?error=invalidlogin2");
+    header("location:../index.php?error=invalidlogin");
     exit();
   }
   else if($checkPwd === true){
@@ -137,7 +137,7 @@ function loginUser($conn,$username,$password){
      $_SESSION["lname"] = $uidExists["lname"];
      $_SESSION["phno"] = $uidExists["phoneno"];
      $_SESSION["email"] = $uidExists["email"];
-     header("location:../index.php?error=loginsuccess");
+     header("location:../store/allbooks.php");
      exit();
   }
 }

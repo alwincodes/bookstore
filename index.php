@@ -13,6 +13,9 @@
            if($_GET["error"]=="signupdone"){
               echo("<p> Sign Up completed log in !! </p>");
             }
+            if($_GET["error"]=="loggedout"){
+              echo("<p> Logged out !! </p>");
+            }
           }
         ?>
         </div>
