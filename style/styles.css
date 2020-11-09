@@ -1,6 +1,9 @@
 *{
     font-family: 'Poppins', sans-serif;
 }
+
+  /* this code is for styling login and 
+  signup pages*/
 .navigation{
   background:#ffffff;
 }
@@ -120,5 +123,33 @@
   .success > p{
     margin: 2% 0%;
   }
-  /* the above code is for styling login and 
-  signup pages*/
+/*this code is for product display search and category page*/
+.content{
+  background-color: rgb(255, 255, 255);
+}
+#results{
+  text-align: center;
+}
+#products{
+  width :80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+#product{
+  padding: 20px 40px;
+}
+.product_images{
+  cursor:pointer;
+  height: 300px;
+}
+.book_info{
+  text-align: center;
+  font-weight: bold;
+}
+.book_info > p{
+  margin:5px 5px;
+}

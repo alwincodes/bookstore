@@ -18,7 +18,7 @@ if(!isset($_SESSION["uid"] )){
 </head>
 <header class ="navigation">
         <ul>
-        <h1 id="logo" style = "display:inline;"><a id="navlinks" href="./index.php">Book Store </a></h1>
+        <h1 id="logo" style = "display:inline;"><a id="navlinks" href="../index.php">Book Store </a></h1>
           <li><a id="navlinks" href="../backend/logout.inc.php">Log out</a></li>
           <li><a id="navlinks" href="">Search</a></li>
           <li><a id="navlinks" href="">Categories</a></li>
