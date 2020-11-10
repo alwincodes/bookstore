@@ -20,9 +20,9 @@ if(!isset($_SESSION["uid"] )){
         <ul>
         <h1 id="logo" style = "display:inline;"><a id="navlinks" href="../index.php">Book Store </a></h1>
           <li><a id="navlinks" href="../backend/logout.inc.php">Log out</a></li>
-          <li><a id="navlinks" href="">Search</a></li>
-          <li><a id="navlinks" href="">Categories</a></li>
-          <li><a id="navlinks" href="">All Books</a></li>
+          <li><a id="navlinks" href="./search.php">Search</a></li>
+          <li><a id="navlinks" href="./categories.php">Categories</a></li>
+          <li><a id="navlinks" href="./allbooks.php">All Books</a></li>
           </ul>  
 </header>
 <hr>
