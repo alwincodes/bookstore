@@ -46,7 +46,7 @@
   }
   .button{
     background-color: #4C8FFB;
-    border:none;
+    border:1px solid;
     color:rgb(255, 255, 255);
     font-size:15px;
     padding: 10px 20px;
@@ -56,9 +56,11 @@
     cursor: pointer
   }
   .button:hover{
-    border: 1px solid #000000;
-    padding: 9px 19px;
-    color:#000000;
+    transition: 0.4s ease-in-out;
+    border: 1px solid #4C8FFB;
+    padding: 10px 20px;
+    background-color:rgb(255, 255, 255) ;
+    color:#4C8FFB;
   }
   .button:focus{
     border:1px solid #4885ed;
