@@ -1,5 +1,7 @@
 <?php
    require "../templates/storenav.php";
+   require "../backend/function.inc.php";
+   require "../backend/dbh.inc.php";
   ?>
   <body>
   <div class="content">
@@ -7,66 +9,29 @@
       Search Books
   </h3>
   <div class="searchfield"><form action="" method ="post">
-        <input type="text" class="login_text" name="" placeholder="Enter book names">
-        <input type="submit" value="Search"class="button">
+        <input type="text" class="login_text" name="bookname" placeholder="Enter book names">
+        <input type="submit" name="book_search" value="Search"class="button">
     </form></div>
     <div id="products">
-      <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>
-       <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>
-       <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>
-       <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>
-       <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>
-       <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>
-       <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>
-       <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>
-       <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>
-       <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>
-       <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>
-       <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>
-       <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>
-       <div id="product">
-       <img class="product_images"src="../images/1.jpg" alt="product image">
-       <div class="book_info"> <p>The god of small Things</p> <p><i>(2010)</i></p> <p>Price: ₹200</p></div>
-       </div>   
+    <?php
+      if(isset($_POST["book_search"])){
+      $searchterm = $_POST["bookname"];
+      $products=searchBooks($conn,$searchterm);
+
+      if($products!==false){
+        while($row = mysqli_fetch_assoc($products)){
+          echo('
+          <div id="product">
+           <img class="product_images"src="'.$row["book_img"].'" alt="product image">
+           <div class="book_info"> <p>'.$row["book_name"].'</p> <p><i>(2010)</i></p> <p>Price: ₹'.$row["book_price"].'/-</p></div>
+           </div> ');
+        }
+      }
+      else{
+        echo("<h1>No Results!!<h1>");
+      }
+    }
+       ?>
     </div>
   </div>
  </body>

@@ -141,6 +141,10 @@
   justify-content: space-around;
 
 }
+#products > h1{
+  text-align: center;
+  width: 100%;
+}
 #product{
   padding: 20px 40px;
 }

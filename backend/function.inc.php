@@ -161,3 +161,25 @@ function getBooks($conn,$sql){
   }
   mysqli_stmt_close($stmt);
 }
+//searching for book based on its name
+function searchBooks($conn,$bookname){
+  $sql="select * from books WHERE book_name LIKE  ? ;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    header("location:../store/allbooks.php?error=stmtfailed");
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt,'s',$bookname);
+  mysqli_stmt_execute($stmt);
+
+  $resultData = mysqli_stmt_get_result($stmt);
+  if(mysqli_num_rows($resultData)>0){
+    $result = $resultData;
+    return $result;
+  }
+  else{
+    $result = false;
+    return $result;
+  }
+  mysqli_stmt_close($stmt);
+}
