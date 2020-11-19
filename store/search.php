@@ -15,7 +15,7 @@
     <div id="products">
     <?php
       if(isset($_POST["book_search"])){
-      $searchterm = $_POST["bookname"];
+      $searchterm = "%{$_POST['bookname']}%";
       $products=searchBooks($conn,$searchterm);
 
       if($products!==false){
