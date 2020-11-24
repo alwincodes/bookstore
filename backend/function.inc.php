@@ -137,7 +137,8 @@ function loginUser($conn,$username,$password){
      $_SESSION["lname"] = $uidExists["lname"];
      $_SESSION["phno"] = $uidExists["phoneno"];
      $_SESSION["email"] = $uidExists["email"];
-     header("location:../store/allbooks.php");
+     $_SESSION["auth"] = $uidExists["auth"];
+     header("location:/index.php");
      exit();
   }
 }

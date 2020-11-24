@@ -1,8 +1,19 @@
 <?php
 session_start();
-if(isset($_SESSION["uid"])){
-   header("location:./store/allbooks.php");
-}?>
+if(isset($_SESSION["auth"])){
+  $auth = $_SESSION["auth"];
+  if($auth === 2 ){
+  header("location:/store/allbooks.php");
+  }
+  if($auth === 1 ){
+      header("location:/seller/seller-dashboard.php");
+  }
+  if($auth === 0 ){
+      header("location:/store/allbooks.php");
+  }  
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
