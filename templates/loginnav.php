@@ -9,7 +9,7 @@ if(isset($_SESSION["auth"])){
       header("location:/seller/seller-dashboard.php");
   }
   if($auth === 0 ){
-      header("location:/store/allbooks.php");
+      header("location:/admin/allbooks.php");
   }  
 }
 

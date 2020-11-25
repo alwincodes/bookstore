@@ -2,12 +2,12 @@
 session_start();
 if(isset($_SESSION["auth"])){
     $auth = $_SESSION["auth"];
+    if($auth === 2 ){
+    header("location:/store/allbooks.php");
+    }
     if($auth === 1 ){
         header("location:/seller/seller-dashboard.php");
-    }
-    if($auth === 0 ){
-        header("location:/admin/allbooks.php");
-    }
+    }  
  }
 else if(!isset($_SESSION["auth"] )){
     header("location:/index.php");
@@ -18,7 +18,7 @@ else if(!isset($_SESSION["auth"] )){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Store</title>
+    <title>Book Seller</title>
 
     </script>
     <script src="../style/javascript/functions.js"></script>
@@ -27,11 +27,12 @@ else if(!isset($_SESSION["auth"] )){
 </head>
 <header class ="navigation">
         <ul>
-        <h1 id="logo" style = "display:inline;"><a id="navlinks" href="./allbooks.php">Book Store </a></h1>
+        <h1 id="logo" style = "display:inline;"><a id="navlinks" href="./allbooks.php">Store Admin </a></h1>
           <li><a id="navlinks" href="../backend/logout.inc.php">Log out</a></li>
           <li><a id="navlinks" href="./search.php">Search</a></li>
           <li><a id="navlinks" href="./categories.php">Categories</a></li>
-          <li><a id="navlinks" href="./allbooks.php">All Books</a></li>
+          <li><a id="navlinks" href="/admin/allorders.php">Orders</a></li>
+          <li><a id="navlinks" href="/admin/allbooks.php">All Books</a></li>
           </ul>  
 </header>
 <hr>

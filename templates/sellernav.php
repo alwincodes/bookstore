@@ -6,7 +6,7 @@ if(isset($_SESSION["auth"])){
     header("location:/store/allbooks.php");
     }
     if($auth === 0 ){
-        header("location:/store/allbooks.php");
+        header("location:/admin/allbooks.php");
     }  
  }
 else if(!isset($_SESSION["auth"] )){
@@ -31,8 +31,8 @@ else if(!isset($_SESSION["auth"] )){
           <li><a id="navlinks" href="../backend/logout.inc.php">Log out</a></li>
           <li><a id="navlinks" href="./search.php">Search</a></li>
           <li><a id="navlinks" href="./categories.php">Categories</a></li>
-          <li><a id="navlinks" href="./categories.php">Orders</a></li>
-          <li><a id="navlinks" href="./allbooks.php">All Books</a></li>
+          <li><a id="navlinks" href="/seller/sellerorder.php">Orders</a></li>
+          <li><a id="navlinks" href="/seller/seller-dashboard.php">All Books</a></li>
           </ul>  
 </header>
 <hr>
