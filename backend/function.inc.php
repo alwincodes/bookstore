@@ -206,3 +206,18 @@ function searchCategories($conn,$bookcat){
   }
   mysqli_stmt_close($stmt);
 }
+//for admins to delete books
+function admin_deletebooks($conn,  $deleteid){
+    $sql="delete  from books WHERE bid = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)){
+      return false;
+      exit();
+    }
+    mysqli_stmt_bind_param($stmt,'s',$deleteid);
+    if(mysqli_stmt_execute($stmt)){
+      return true;
+    }else{
+      return false;
+    }
+}

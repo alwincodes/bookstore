@@ -32,8 +32,8 @@ $sellerid = $_SESSION["uid"];
           <td>'.substr($row['book_desc'],0,60).'...'.'</td>
           <td>'.$row['book_price'].'</td>
           <td>'.$row['category'].'</td>
-          <td>Delete</td>
-          <td>update</td>
+          <td><a href="./functions.php?deletebookid='.$row['bid'].'">Delete</a></td>
+          <td><a href="./functions.php?updatebookid='.$row['bid'].'">update</a></td>
         </tr>
         ');
         }
