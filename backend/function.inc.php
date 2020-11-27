@@ -100,7 +100,7 @@ function createUser($conn,$fname,$lname,$uname,$email,$phno,$pass){
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
   header("location:../index.php?error=signupdone");
-  return $hashedpwd;
+ 
 }
 
 //code to validate and login users
@@ -220,4 +220,36 @@ function admin_deletebooks($conn,  $deleteid){
     }else{
       return false;
     }
+}
+//book input
+function emptybookinfo($bookname,$isbn,$bookdescription,$bookprice,$bookcat){
+  $result;
+  if(empty($bookname) || empty($isbn) || empty($bookdescription) || empty($bookprice) || empty($bookcat) ){
+    $result = true;
+  }
+  else{
+    $result = false;
+  }
+  return $result;
+}
+function isbncheck($isbn) {
+  if((strlen($isbn) < 10) || (strlen($isbn) > 13)){
+    $result = true;
+  }
+  else{
+    $result = false;
+  }
+  return $result;
+}
+function addBook($conn,$bookname,$isbn,$fileDestination,$bookdescription,$bookstock,$bookprice,$sellerid,$bookcat) {
+  $sql = "INSERT INTO books (book_name,book_isbn,book_img,book_desc,book_stock,book_price,seller_id,category) VALUES (?,?,?,?,?,?,?,?);";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt,"ssssssss",$bookname,$isbn,$fileDestination,$bookdescription,$bookstock,$bookprice,$sellerid,$bookcat);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+  return true;
 }
