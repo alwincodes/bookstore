@@ -267,3 +267,38 @@ function sellerdelete($conn,$bookid,$sellerid) {
     return false;
   }
 }
+//to get info about a book based on its bid
+function singleBookInfo($conn,$bid){
+  $sql = "SELECT * FROM books WHERE bid = ? ;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt,"s",$bid);
+  mysqli_stmt_execute($stmt);
+
+  $resultData = mysqli_stmt_get_result($stmt);
+  if($row = mysqli_fetch_assoc($resultData)){
+    return $row;
+  }
+  else{
+    $result = false;
+    return $result;
+  }
+  mysqli_stmt_close($stmt);
+ }
+ //a function to update book information based on user input
+function sellerUpdateBook($conn,$bookname,$isbn,$bookdescription,$bookstock,$bookprice,$bookcat,$bookauthor,$bookyear,$bid){
+  $sql = "UPDATE books SET book_name = ?,book_isbn = ?,book_desc =?,book_stock =?,book_price =?,category =?,book_year =?,book_author=? where bid = ?;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt,"sssssssss",$bookname,$isbn,$bookdescription,$bookstock,$bookprice,$bookcat,$bookyear,$bookauthor,$bid);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+  return true;
+}

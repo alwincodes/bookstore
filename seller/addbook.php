@@ -36,7 +36,7 @@ $auth =$_SESSION["auth"];
      $bookstock = $_POST['stock'];
      $bookcat = $_POST['bookcat'];
      $bookauthor = $_POST['author'];
-     $bookyear = $_POST['yeart'];
+     $bookyear = $_POST['year'];
      $bookimg = $_FILES['bookimg'];
     
      if(emptybookinfo($bookname,$isbn,$bookdescription,$bookprice,$bookcat,$bookauthor,$bookyear)!==false){
