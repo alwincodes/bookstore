@@ -222,9 +222,9 @@ function admin_deletebooks($conn,  $deleteid){
     }
 }
 //book input
-function emptybookinfo($bookname,$isbn,$bookdescription,$bookprice,$bookcat){
+function emptybookinfo($bookname,$isbn,$bookdescription,$bookprice,$bookcat,$bookauthor,$bookyear){
   $result;
-  if(empty($bookname) || empty($isbn) || empty($bookdescription) || empty($bookprice) || empty($bookcat) ){
+  if(empty($bookname) || empty($isbn) || empty($bookdescription) || empty($bookprice) || empty($bookcat) || empty($bookauthor)|| empty($bookyear)){
     $result = true;
   }
   else{
@@ -241,15 +241,29 @@ function isbncheck($isbn) {
   }
   return $result;
 }
-function addBook($conn,$bookname,$isbn,$fileDestination,$bookdescription,$bookstock,$bookprice,$sellerid,$bookcat) {
-  $sql = "INSERT INTO books (book_name,book_isbn,book_img,book_desc,book_stock,book_price,seller_id,category) VALUES (?,?,?,?,?,?,?,?);";
+function addBook($conn,$bookname,$isbn,$fileDestination,$bookdescription,$bookstock,$bookprice,$sellerid,$bookcat,$bookauthor,$bookyear) {
+  $sql = "INSERT INTO books (book_name,book_isbn,book_img,book_desc,book_stock,book_price,seller_id,category,book_year,book_author) VALUES (?,?,?,?,?,?,?,?,?,?);";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt,$sql)){
     return false;
     exit();
   }
-  mysqli_stmt_bind_param($stmt,"ssssssss",$bookname,$isbn,$fileDestination,$bookdescription,$bookstock,$bookprice,$sellerid,$bookcat);
+  mysqli_stmt_bind_param($stmt,"ssssssssss",$bookname,$isbn,$fileDestination,$bookdescription,$bookstock,$bookprice,$sellerid,$bookcat,$bookyear,$bookauthor);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
   return true;
+}
+function sellerdelete($conn,$bookid,$sellerid) {
+  $sql="delete  from books WHERE bid = ? and seller_id = ?;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt,'ss',$bookid,$sellerid);
+  if(mysqli_stmt_execute($stmt)){
+    return true;
+  }else{
+    return false;
+  }
 }

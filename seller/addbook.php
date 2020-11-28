@@ -12,6 +12,8 @@ $auth =$_SESSION["auth"];
   <textarea  rows="10" cols="30" name="description"placeholder="Book description"></textarea>
   <input type ="text" name="price"placeholder="Book price">
   <input type ="text" name="stock"placeholder="Book stock">
+  <input type ="text" name="author"placeholder="Book author">
+  <input type ="text" name="year"placeholder="Book year">
   <select id="bookcat" name="bookcat" >
      <option value="fantasy">fantasy</option>
      <option value="adventure">Adventure</option>
@@ -33,9 +35,11 @@ $auth =$_SESSION["auth"];
      $bookprice = $_POST['price'];
      $bookstock = $_POST['stock'];
      $bookcat = $_POST['bookcat'];
+     $bookauthor = $_POST['author'];
+     $bookyear = $_POST['yeart'];
      $bookimg = $_FILES['bookimg'];
     
-     if(emptybookinfo($bookname,$isbn,$bookdescription,$bookprice,$bookcat)!==false){
+     if(emptybookinfo($bookname,$isbn,$bookdescription,$bookprice,$bookcat,$bookauthor,$bookyear)!==false){
          echo("empty inputs");
          exit();
      }
@@ -59,9 +63,11 @@ $auth =$_SESSION["auth"];
             if($fileSize < 2097152 ){
                    $fileNameNew = uniqid('',true).".".$fileActualExt;
                    $fileDestination = "../images/".$fileNameNew;
-                   if(addBook($conn,$bookname,$isbn,$fileDestination,$bookdescription,$bookstock,$bookprice,$sellerid,$bookcat)) {
-                   move_uploaded_file($fileTmpName,$fileDestination);
-                   echo("Your book has been added");
+                   
+                   if(move_uploaded_file($fileTmpName,$fileDestination)) {
+                    $fileDestination = "/images/".$fileNameNew;
+                    addBook($conn,$bookname,$isbn,$fileDestination,$bookdescription,$bookstock,$bookprice,$sellerid,$bookcat,$bookauthor,$bookyear);
+                    echo("Your book has been added");
                    }
             }else{
                 echo("file too big! make sure file is less than 2 mb");
