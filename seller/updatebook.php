@@ -9,7 +9,7 @@ $auth =$_SESSION["auth"];
 if(isset($_GET['bookid']) && isset($_GET['img'])){
     $ubookid = $_GET['bookid'];
     $uimage = $_GET['img'];
-    $bookexist = singleBookInfo($conn,$ubookid);
+    $bookexist = singleBookInfo($conn,$ubookid,$sellerid);
     if($bookexist !== false) {
         $cat = $bookexist['category'];
     echo('
@@ -56,7 +56,7 @@ if(isset($_GET['bookid']) && isset($_GET['img'])){
                 echo("isbn not correct");
                 exit();
         }
-        if(!sellerUpdateBook($conn,$bookname,$isbn,$bookdescription,$bookstock,$bookprice,$bookcat,$bookauthor,$bookyear,$ubookid)) {
+        if(!sellerUpdateBook($conn,$bookname,$isbn,$bookdescription,$bookstock,$bookprice,$bookcat,$bookauthor,$bookyear,$ubookid,$sellerid)) {
             echo("something went wrong cant update values");
         }
         else{
