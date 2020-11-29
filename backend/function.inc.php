@@ -304,7 +304,10 @@ function sellerUpdateBook($conn,$bookname,$isbn,$bookdescription,$bookstock,$boo
 }
 //to get info about a book for customers
 function userBookData($conn,$bid){
-  $sql = "SELECT * FROM books WHERE bid = ? ;";
+  $sql = "SELECT books.bid, books.book_name,  books.book_isbn, books.book_img, books.book_desc, books.book_stock, books.book_price, books.category, books.book_year, books.book_author,users.username
+  FROM books
+  INNER JOIN users
+  ON books.seller_id=users.usersId Where books.bid=? ;";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt,$sql)){
     return false;

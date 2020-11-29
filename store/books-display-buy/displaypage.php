@@ -27,7 +27,7 @@
                 </div>
                     <h2 class="heading_final">Price ₹ '.$bookdata['book_price'].'/-</h2>
                     <div class="additional_info">
-                    <p>seller: Appukuttan</p>
+                    <p>seller: '.$bookdata['username'].'</p>
                     <table id="customers">
                         <tr>
                         <th colspan="4">Book Info</th>
