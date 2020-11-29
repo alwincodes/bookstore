@@ -302,3 +302,25 @@ function sellerUpdateBook($conn,$bookname,$isbn,$bookdescription,$bookstock,$boo
   mysqli_stmt_close($stmt);
   return true;
 }
+//to get info about a book for customers
+function userBookData($conn,$bid){
+  $sql = "SELECT * FROM books WHERE bid = ? ;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt,"s",$bid);
+  mysqli_stmt_execute($stmt);
+
+  $resultData = mysqli_stmt_get_result($stmt);
+  if($row = mysqli_fetch_assoc($resultData)){
+    return $row;
+  }
+  else{
+    $result = false;
+    return $result;
+  }
+  mysqli_stmt_close($stmt);
+ }

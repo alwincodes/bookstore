@@ -1,5 +1,7 @@
 *{
     font-family: 'Poppins', sans-serif;
+    color:black;
+    text-decoration: none;
 }
 
   /* this code is for styling login and 
@@ -190,7 +192,6 @@
 .cat_items{
   text-decoration: none;
   text-transform: uppercase;
-  color: #000;
 }
 .searchfield{
   display: flex;
@@ -220,4 +221,85 @@
   text-align: left;
   background-color: #4CAF50;
   color: white;
+}
+/* product display page for customer */
+.displaypage{
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+
+}
+.proddisplay{
+  width: 400px;
+  height: auto;
+  margin: 0px auto 0px auto;
+ 
+}
+.prodinfo{
+ width: 800px;
+
+ margin: 80px auto 0px auto;
+}
+.heading_final{
+  text-align: center;
+  margin: 10px;
+}
+.author_final{
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+#product_final{
+  margin: 10px auto;
+  padding: 20px 40px;
+  text-align: center;
+  height: 530px;
+  width: 310px;
+  
+}
+.product_images_final{
+
+  cursor:pointer;
+  height: 450px;
+  border-radius: 5px;
+  box-shadow: 5px 10px #2b2a2a;
+}
+
+.order_items{
+  text-decoration: none;
+  text-transform: uppercase;
+}
+#order{
+  margin: 30px 0px;
+  padding: 15px 0px;
+  border: 1px solid #4C8FFB;
+  background-color: #4C8FFB;
+  border-radius: 5px;
+}
+#order > a{
+  padding:20px 118px;
+  color: #ffffff;
+}
+#order:hover{
+  background-color: #ffffff;
+  transition: ease-in-out;
+
+}
+#order > a:hover{
+  color: #4C8FFB;
+  transition: ease-in-out;
+}
+.bookdescription{
+  margin: 20px;
+  text-align: center;
+  font-size: large;
+
+}
+.desc_final{
+  text-align: center;
+  margin: 10px;
+}
+.additional_info{
+  text-align: center;
+  font-size: large;
 }
