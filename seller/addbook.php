@@ -67,7 +67,7 @@ $auth =$_SESSION["auth"];
                    if(move_uploaded_file($fileTmpName,$fileDestination)) {
                     $fileDestination = "/images/".$fileNameNew;
                     addBook($conn,$bookname,$isbn,$fileDestination,$bookdescription,$bookstock,$bookprice,$sellerid,$bookcat,$bookauthor,$bookyear);
-                    echo("Your book has been added");
+                    header("Location:./seller-dashboard.php?status=bookadded");
                    }
             }else{
                 echo("file too big! make sure file is less than 2 mb");

@@ -6,28 +6,28 @@
   <body>
   <div class="content">
     <div id="products">
-    <div id="product">
+       <div id="category">
         <a class = "cat_items"href="./categories.php?cat=Fantasy">Fantasy</a>
        </div> 
-       <div id="product">
+       <div id="category">
         <a class = "cat_items"href="./categories.php?cat=adventure">Adventure</a>
        </div> 
-       <div id="product">
+       <div id="category">
         <a class = "cat_items"href="./categories.php?cat=romance">Romance</a>
        </div> 
-       <div id="product">
+       <div id="category">
         <a class = "cat_items"href="./categories.php?cat=thriller">Thriller</a>
        </div> 
-       <div id="product">
+       <div id="category">
         <a class = "cat_items"href="./categories.php?cat=horror">Horror</a>
        </div> 
-       <div id="product">
+       <div id="category">
         <a class = "cat_items"href="./categories.php?cat=scifi">Sci-fi</a>
        </div> 
-       <div id="product">
+       <div id="category">
         <a class = "cat_items"href="./categories.php?cat=humour">Humour</a>
        </div> 
-       <div id="product">
+       <div id="category">
         <a class = "cat_items"href="./categories.php?cat=other">Other</a>
        </div>
     </div>

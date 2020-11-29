@@ -20,4 +20,6 @@ if(isset($_GET['bookid']) && isset($_GET['img'])){
             echo("error no image link");
         }
     }
+}else{
+    header("Location:./seller-dashboard.php");
 }
