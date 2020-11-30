@@ -146,9 +146,30 @@ function loginUser($conn,$username,$password){
 function getBooks($conn,$sql){
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt,$sql)){
-    header("location:../store/allbooks.php?error=stmtfailed");
+    header("location:/seller/seller-dashboard.php?error=stmtfailed");
     exit();
   }
+  mysqli_stmt_execute($stmt);
+
+  $resultData = mysqli_stmt_get_result($stmt);
+  if(mysqli_num_rows($resultData)>0){
+    $result = $resultData;
+    return $result;
+  }
+  else{
+    $result = false;
+    return $result;
+  }
+  mysqli_stmt_close($stmt);
+}
+//getting a specific sellers order info based on order table
+function getOrderSeller($conn,$sql,$sellerid){
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    header("location:/seller/seller-dashboard.php?error=stmtfailed");
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt,'s',$sellerid);
   mysqli_stmt_execute($stmt);
 
   $resultData = mysqli_stmt_get_result($stmt);
@@ -326,4 +347,35 @@ function userBookData($conn,$bid){
     return $result;
   }
   mysqli_stmt_close($stmt);
+ }
+ //function for users to create orderss
+ function createOrder($conn,$bid,$uid,$pincode,$address,$city,$district,$state) {
+    $sql ="INSERT INTO orders (bid,uid,pincode,addr,city,dist,state) 
+    VALUES (?,?,?,?,?,?,?);";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)){
+      return false;
+      exit();
+    }
+  
+    mysqli_stmt_bind_param($stmt,"sssssss",$bid,$uid,$pincode,$address,$city,$district,$state);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    return true;
+ }
+function updateOrderStatus($conn,$oid,$sellerid,$currentStatus) {
+  $sql = " UPDATE orders
+  INNER JOIN books ON orders.bid=books.bid
+  
+  SET orders.status=? WHERE books.seller_id =? AND orders.oid = ?;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt,"sss",$currentStatus,$sellerid,$oid);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+  return true;
  }
