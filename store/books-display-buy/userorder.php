@@ -1,28 +1,21 @@
 <?php
-require "../templates/sellernav.php";
-require "../backend/dbh.inc.php";
-require "../backend/function.inc.php";
-$sellerid = $_SESSION["uid"];
-?>
-  <?php
-      $sql="SELECT orders.oid, orders.bid,orders.uid,orders.pincode, orders.addr, orders.city, orders.dist, orders.state, orders.status,books.book_name,books.book_isbn,users.fname,users.lname,users.email,users.phoneno
-      FROM orders
-      INNER JOIN books
-      ON books.bid=orders.bid
-      INNER JOIN users
-      ON orders.uid=users.usersId Where books.seller_id=?  ORDER BY oid DESC;";
-      $products=getOrderSeller($conn,$sql,$sellerid);
+   require "../../templates/storenav.php";
+   require "../../backend/dbh.inc.php";
+   require "../../backend/function.inc.php";
+   $userid =$_SESSION["uid"];
+   ?>
+     <?php
+      $sql="SELECT * from orders where uid =?;";
+      $products=getOrderUser($conn,$sql,$userid);
 
       if($products!==false){
         echo('
         <h3>All your orders</h3>
+        <h4>Please contact the seller for order cancellation</h4>
         <table id="customers">
         <tr>
           <th>Id</th>
           <th>Book Id</th>
-          <th>Book Name</th>
-          <th>Book Isbn</th>
-          <th>Customer Id</th>
           <th>Customer Name</th>
           <th>Customer Email</th>
           <th>Customer Phone</th>
@@ -32,7 +25,6 @@ $sellerid = $_SESSION["uid"];
           <th>District</th>
           <th>State</th>
           <th>Status</th>
-          <th>Change Order Status</th>
         </tr>
         ');
         while($row = mysqli_fetch_assoc($products)){
@@ -44,20 +36,17 @@ $sellerid = $_SESSION["uid"];
           echo('
           <tr>
           <td>'.$row['oid'].'</td>
-          <td>'.$row['bid'].'</td>
-          <td>'.$row['book_name'].'</td>
-          <td>'.$row['book_isbn'].'</td>
-          <td>'.$row['uid'].'</td>
-          <td>'.$row['fname'].''." ".''.$row['lname'].'</td>
-          <td>'.$row['email'].'</td>
-          <td>'.$row['phoneno'].'</td>
+          <td><a style="color:blue"href="/store/books-display-buy/displaypage.php?bid='.$row['bid'].'">'.$row['bid'].'</a></td>
+          <td>'.$_SESSION['fname'].''." ".''.$_SESSION['lname'].'</td>
+          <td>'.$_SESSION['email'].'</td>
+          <td>'.$_SESSION['phno'].'</td>
           <td>'.$row['addr'].'</td>
           <td>'.$row['pincode'].'</td>
           <td>'.$row['city'].'</td>
           <td>'.$row['dist'].'</td>
           <td>'.$row['state'].'</td>
           <td style="font-weight: bold;color:'.$colordef.'">'.$row['status'].'</td>
-          <td><a href="/seller/orderupdate.php?oid='.$row['oid'].'">update</a></td>
+ 
         </tr>
         ');
         }

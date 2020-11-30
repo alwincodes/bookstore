@@ -29,7 +29,6 @@ else if(!isset($_SESSION["auth"] )){
         <ul>
         <h1 id="logo" style = "display:inline;"><a id="navlinks" href="./seller-dashboard.php">Book Seller </a></h1>
           <li><a id="navlinks" href="../backend/logout.inc.php">Log out</a></li>
-          <li><a id="navlinks" href="./search.php">Search</a></li>
           <li><a id="navlinks" href="/seller/addbook.php">Add Book</a></li>
           <li><a id="navlinks" href="/seller/sellerorder.php">Orders</a></li>
           <li><a id="navlinks" href="/seller/seller-dashboard.php">All Books</a></li>

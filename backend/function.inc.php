@@ -325,7 +325,7 @@ function sellerUpdateBook($conn,$bookname,$isbn,$bookdescription,$bookstock,$boo
 }
 //to get info about a book for customers
 function userBookData($conn,$bid){
-  $sql = "SELECT books.bid, books.book_name,  books.book_isbn, books.book_img, books.book_desc, books.book_stock, books.book_price, books.category, books.book_year, books.book_author,users.username
+  $sql = "SELECT books.bid, books.book_name,  books.book_isbn, books.book_img, books.book_desc, books.book_stock, books.book_price, books.category, books.book_year, books.book_author,users.username,users.email
   FROM books
   INNER JOIN users
   ON books.seller_id=users.usersId Where books.bid=? ;";
@@ -378,4 +378,24 @@ function updateOrderStatus($conn,$oid,$sellerid,$currentStatus) {
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
   return true;
+ }
+ function getOrderUser($conn,$sql,$userid){
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    header("location:../store/allbooks.php?error=stmtfailed");
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt,'s',$userid);
+  mysqli_stmt_execute($stmt);
+
+  $resultData = mysqli_stmt_get_result($stmt);
+  if(mysqli_num_rows($resultData)>0){
+    $result = $resultData;
+    return $result;
+  }
+  else{
+    $result = false;
+    return $result;
+  }
+  mysqli_stmt_close($stmt);
  }

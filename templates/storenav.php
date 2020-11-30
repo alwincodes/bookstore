@@ -26,13 +26,19 @@ else if(!isset($_SESSION["auth"] )){
     <link rel="stylesheet" href="/style/styles.css">
 </head>
 <header class ="navigation">
+          <div style="float:right" class="dropdown">
+            <button class="dropbtn"><?php echo($_SESSION['username']); ?></button>
+            <div class="dropdown-content">
+                 <a id="navlinks" href="/store/books-display-buy/userorder.php"><b>Orders</b></a>
+                 <a id="navlinks" href="/backend/logout.inc.php"><b>Log out</b></a>
+              </div>
+           </div>
         <ul>
         <h1 id="logo" style = "display:inline;"><a id="navlinks" href="/store/allbooks.php">Book Store </a></h1>
-          <li><a id="navlinks" href="/backend/logout.inc.php">Log out</a></li>
           <li><a id="navlinks" href="/store/search.php">Search</a></li>
           <li><a id="navlinks" href="/store/categories.php">Categories</a></li>
           <li><a id="navlinks" href="/store/allbooks.php">All Books</a></li>
-          </ul>  
+         </ul>  
 </header>
 <hr>
 <body>

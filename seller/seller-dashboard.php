@@ -16,6 +16,7 @@ $sellerid = $_SESSION["uid"];
           <th>Id</th>
           <th>Name</th>
           <th>isbn</th>
+          <th>image</th>
           <th>Description</th>
           <th>price</th>
           <th>category</th>
@@ -31,6 +32,7 @@ $sellerid = $_SESSION["uid"];
           <td>'.$row['bid'].'</td>
           <td>'.$row['book_name'].'</td>
           <td>'.$row['book_isbn'].'</td>
+          <td><a style="color:blue" href="'.$row['book_img'].'">Click here</a></td>
           <td>'.substr($row['book_desc'],0,60).'...'.'</td>
           <td>'.$row['book_price'].'</td>
           <td>'.$row['category'].'</td>
