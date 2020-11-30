@@ -173,6 +173,7 @@
 }
 
 .product_images{
+  box-shadow: 10px 10px 5px grey;
   cursor:pointer;
   height: 300px;
   border-radius: 5px;

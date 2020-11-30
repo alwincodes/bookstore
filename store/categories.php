@@ -53,6 +53,8 @@
       else{
         echo("<h1>No Results!!<h1>");
       }
+    }else{
+      echo("<h1>click on a category<h1>");
     }
   ?>
     </div>
