@@ -102,6 +102,23 @@ function createUser($conn,$fname,$lname,$uname,$email,$phno,$pass){
   header("location:../index.php?error=signupdone");
  
 }
+//function to create seller account
+function createSeller($conn,$fname,$lname,$uname,$email,$phno,$pass){
+  $sql = "INSERT INTO users (username,fname,lname,email,phoneno,userpass,auth) VALUES (?,?,?,?,?,?,?);";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    header("location:/seller/sellersignup.php?error=stmtfailed");
+    exit();
+  }
+  $hashedpwd = password_hash($pass,PASSWORD_DEFAULT);
+  $auth = 1;
+  mysqli_stmt_bind_param($stmt,"sssssss",$uname,$fname,$lname,$email,$phno,$hashedpwd,$auth);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+  mkdir("../images/$uname");
+  header("location:/index.php?error=signupdone");
+ 
+}
 
 //code to validate and login users
 

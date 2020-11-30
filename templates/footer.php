@@ -1,5 +1,5 @@
 <div class="footer"> 
-   <p class ="fcredit"><a id="navlinks"href="">Become a seller</a></p>
+   <p class ="fcredit"><a id="navlinks"href="/seller/sellersignup.php">Become a seller</a></p>
  </div>
 </body>
 </html>

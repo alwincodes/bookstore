@@ -3,6 +3,7 @@ require "../templates/sellernav.php";
 require "../backend/dbh.inc.php";
 require "../backend/function.inc.php";
 $sellerid = $_SESSION["uid"];
+$sellername=$_SESSION['username'];
 $auth =$_SESSION["auth"];
 ?>
 <h4>Add Your Book</h4>
@@ -62,10 +63,10 @@ $auth =$_SESSION["auth"];
         if($fileError === 0){
             if($fileSize < 2097152 ){
                    $fileNameNew = uniqid('',true).".".$fileActualExt;
-                   $fileDestination = "../images/".$fileNameNew;
+                   $fileDestination = "../images/".$sellername."/".$fileNameNew;
                    
                    if(move_uploaded_file($fileTmpName,$fileDestination)) {
-                    $fileDestination = "/images/".$fileNameNew;
+                    $fileDestination = "/images/".$sellername."/".$fileNameNew;
                     addBook($conn,$bookname,$isbn,$fileDestination,$bookdescription,$bookstock,$bookprice,$sellerid,$bookcat,$bookauthor,$bookyear);
                     header("Location:./seller-dashboard.php?status=bookadded");
                    }

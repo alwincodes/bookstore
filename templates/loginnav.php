@@ -22,7 +22,7 @@ if(isset($_SESSION["auth"])){
     <title>Book Store</title>
 
     </script>
-    <script src="style\javascript\functions.js"></script>
+    <script src="/style/javascript/functions.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,200;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style/styles.css">
 </head>

@@ -10,7 +10,7 @@ if(isset($_GET['bookid']) && isset($_GET['img'])){
         echo("some error has occured can't delete please don't tamper with the url");
     }else{
         if(isset($_GET['img'])){
-            $path=$_GET['img'];
+            $path="..".$_GET['img'];
             if(!unlink($path)){
                echo("unable to delete image");
             }else{
