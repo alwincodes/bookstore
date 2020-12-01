@@ -17,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 91vh;
+    
     flex-wrap: wrap;
     flex-direction: column;
     width: 100%;
@@ -38,10 +38,21 @@
     outline: none;
     margin: 8px;
   }
-  .login_text:hover{
+  .login_text_area{
+    margin:0 auto;
+    width:300px;
+    border-radius:30px;
+    border:1px solid #b1afaf;
+    height:100px;
+    padding-left: 20px;
+    font-size:16px;
+    outline: none;
+    margin: 8px;
+  }
+  .login_text :hover, .login_text_area:hover{
     box-shadow: 1px 1px 8px 1px #dcdcdc;
   }
-  .login_text:focus-within{
+  .login_text:hover,  .login_text_area:focus-within{
     box-shadow: 1px 1px 8px 1px #dcdcdc;
     outline:none;
   }

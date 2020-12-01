@@ -18,7 +18,7 @@ else if(!isset($_SESSION["auth"] )){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Seller</title>
+    <title>Book Admin</title>
 
     </script>
     <script src="../style/javascript/functions.js"></script>

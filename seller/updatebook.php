@@ -13,15 +13,18 @@ if(isset($_GET['bookid']) && isset($_GET['img'])){
     if($bookexist !== false) {
         $cat = $bookexist['category'];
     echo('
-           <h4>Update Book Info</h4>
+           
            <form  action="" method="post" enctype = "multipart/form-data">
-             <input value="'.$bookexist['book_name'].'" type ="text" name="bname"placeholder="Book name">
-             <input value="'.$bookexist['book_isbn'].'" type ="text" name="isbn"placeholder="Book isbn">
-             <textarea  rows="10" cols="30" name="description"placeholder="Book description">'.$bookexist['book_desc'].' </textarea>
-             <input value="'.$bookexist['book_price'].'" type ="text" name="price"placeholder="Book price">
-             <input value="'.$bookexist['book_stock'].'" type ="text" name="stock"placeholder="Book stock">
-             <input value="'.$bookexist['book_author'].'" type ="text" name="author"placeholder="Book author">
-             <input value="'.$bookexist['book_year'].'" type ="text" name="year"placeholder="Book year">
+           <div class ="inputfield">
+           <h4>Update Book Info</h4>
+             <input  class="login_text" value="'.$bookexist['book_name'].'" type ="text" name="bname"placeholder="Book name">
+             <input  class="login_text"value="'.$bookexist['book_isbn'].'" type ="text" name="isbn"placeholder="Book isbn">
+             <textarea   class="login_text_area" rows="10" cols="30" name="description"placeholder="Book description">'.$bookexist['book_desc'].' </textarea>
+             <input  class="login_text" value="'.$bookexist['book_price'].'" type ="text" name="price"placeholder="Book price">
+             <input  class="login_text" value="'.$bookexist['book_stock'].'" type ="text" name="stock"placeholder="Book stock">
+             <input  class="login_text" value="'.$bookexist['book_author'].'" type ="text" name="author"placeholder="Book author">
+             <input  class="login_text" value="'.$bookexist['book_year'].'" type ="text" name="year"placeholder="Book year">
+             <div>
              <select id="bookcat" name="bookcat" >
                 <option value="">Select an option to update</option>
                 <option value="fantasy">fantasy</option>
@@ -34,7 +37,9 @@ if(isset($_GET['bookid']) && isset($_GET['img'])){
                 <option value="other">Other</option>
             </select>
             <input type="file" name="bookimg" >
-            <button type="submit" name="updatebook">Update Book Info</button>
+            </div>
+            <button  class="button" type="submit" name="updatebook">Update Book Info</button>
+            </div>
            </form> 
         ');
 

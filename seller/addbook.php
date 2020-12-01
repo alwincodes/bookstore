@@ -6,16 +6,19 @@ $sellerid = $_SESSION["uid"];
 $sellername=$_SESSION['username'];
 $auth =$_SESSION["auth"];
 ?>
-<h4>Add Your Book</h4>
+
 <form  action="" method="post" enctype = "multipart/form-data">
-  <input type ="text" name="bname"placeholder="Book name">
-  <input type ="text" name="isbn"placeholder="Book isbn">
-  <textarea  rows="10" cols="30" name="description"placeholder="Book description"></textarea>
-  <input type ="text" name="price"placeholder="Book price">
-  <input type ="text" name="stock"placeholder="Book stock">
-  <input type ="text" name="author"placeholder="Book author">
-  <input type ="text" name="year"placeholder="Book year">
-  <select id="bookcat" name="bookcat" >
+ <div class ="inputfield">
+  <h4>Add Your Book</h4>
+  <input class="login_text" type ="text" name="bname"placeholder="Book name">
+  <input class="login_text" type ="text" name="isbn"placeholder="Book isbn">
+  <textarea  class="login_text_area"rows="10" cols="30" name="description"placeholder="Book description"></textarea>
+  <input class="login_text" type ="text" name="price"placeholder="Book price">
+  <input class="login_text" type ="text" name="stock"placeholder="Book stock">
+  <input class="login_text" type ="text" name="author"placeholder="Book author">
+  <input class="login_text" type ="text" name="year"placeholder="Book year">
+  <div>
+  <select  id="bookcat" name="bookcat" >
      <option value="fantasy">fantasy</option>
      <option value="adventure">Adventure</option>
      <option value="romance">Romance</option>
@@ -25,8 +28,10 @@ $auth =$_SESSION["auth"];
      <option value="humour">Humour</option>
      <option value="other">Other</option>
  </select>
- <input type="file" name="bookimg" >
- <button type="submit" name="addbook">Add Book</button>
+ <input  type="file" name="bookimg" >
+</div>
+ <button class="button"type="submit" name="addbook">Add Book</button>
+ </div>
 </form>
 <?php
  if(isset($_POST['addbook'])){

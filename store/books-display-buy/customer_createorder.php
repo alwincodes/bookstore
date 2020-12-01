@@ -8,13 +8,17 @@
          
       echo('
          <form action="" method="post">
-            <input name="pincode"type="text" placeholder="PINCODE">
-            <textarea name="address"rows = "5" cols ="30"> </textarea>
-            <input name="city"type="text" placeholder="City">
-            <input name="district"type="text" placeholder="District">
-            <input name="state"type="text" placeholder="State">
-            <button name="Order"type="submit">Create order</button>
+            <div class="inputfield">
+            <h1>Create your order</h1>
+            <input class="login_text" name="pincode"type="text" placeholder="PINCODE">
+            <textarea class="login_text_area" name="address"rows = "5" cols ="30"Placeholder="Enter Your address"></textarea>
+            <input class="login_text" name="city"type="text" placeholder="City">
+            <input class="login_text" name="district"type="text" placeholder="District">
+            <input class="login_text" name="state"type="text" placeholder="State">
+            <button class="button" name="Order"type="submit">Create order</button>
+            </div>
          </form>
+    
          ');
 
          if(isset($_POST['Order'])) {

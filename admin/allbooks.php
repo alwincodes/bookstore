@@ -20,7 +20,6 @@ $sellerid = $_SESSION["uid"];
           <th>price</th>
           <th>category</th>
           <th>Delete</th>
-          <th>Update</th>
         </tr>
         ');
         while($row = mysqli_fetch_assoc($products)){
@@ -32,8 +31,7 @@ $sellerid = $_SESSION["uid"];
           <td>'.substr($row['book_desc'],0,60).'...'.'</td>
           <td>'.$row['book_price'].'</td>
           <td>'.$row['category'].'</td>
-          <td><a href="./functions.php?deletebookid='.$row['bid'].'">Delete</a></td>
-          <td><a href="./functions.php?updatebookid='.$row['bid'].'">update</a></td>
+          <td ><a style="color:blue"href="./functions.php?deletebookid='.$row['bid'].'">Delete</a></td>
         </tr>
         ');
         }

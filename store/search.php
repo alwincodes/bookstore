@@ -26,7 +26,7 @@
            <img class="product_images"src="'.$row["book_img"].'" alt="product image">
            <div class="book_info"> <p>'.$row["book_name"].'</p> <p><i>(2010)</i></p> <p>Price: ₹'.$row["book_price"].'/-</p></div>
            </div> 
-           <a href="/store/books-display-buy/displaypage.php?bid='.$row["bid"].'">
+
            ');
         }
       }
