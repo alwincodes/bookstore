@@ -12,12 +12,28 @@
 #bodylogin{
   background-color: rgb(255, 255, 255);
 }
-
+.select{
+  font-size:normal;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+}
+.inputfieldlogin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
 .inputfield{
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     flex-wrap: wrap;
     flex-direction: column;
     width: 100%;
@@ -55,6 +71,15 @@
   .login_text:hover,  .login_text_area:focus-within{
     box-shadow: 1px 1px 8px 1px #dcdcdc;
     outline:none;
+  }
+  .file{
+     border:1px solid;
+    font-size:15px;
+    padding: 10px 20px;
+    margin:4px;
+    border-radius:5px;
+    outline:none;
+    cursor: pointer
   }
   .button{
     background-color: #4C8FFB;

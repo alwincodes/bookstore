@@ -8,7 +8,7 @@ $auth =$_SESSION["auth"];
 ?>
 
 <form  action="" method="post" enctype = "multipart/form-data">
- <div class ="inputfield">
+ <div class ="inputfieldlogin">
   <h4>Add Your Book</h4>
   <input class="login_text" type ="text" name="bname"placeholder="Book name">
   <input class="login_text" type ="text" name="isbn"placeholder="Book isbn">
@@ -17,8 +17,8 @@ $auth =$_SESSION["auth"];
   <input class="login_text" type ="text" name="stock"placeholder="Book stock">
   <input class="login_text" type ="text" name="author"placeholder="Book author">
   <input class="login_text" type ="text" name="year"placeholder="Book year">
-  <div>
-  <select  id="bookcat" name="bookcat" >
+  
+  <select class="select" id="bookcat" name="bookcat" >
      <option value="fantasy">fantasy</option>
      <option value="adventure">Adventure</option>
      <option value="romance">Romance</option>
@@ -28,8 +28,8 @@ $auth =$_SESSION["auth"];
      <option value="humour">Humour</option>
      <option value="other">Other</option>
  </select>
- <input  type="file" name="bookimg" >
-</div>
+ <input  class="file" type="file" name="bookimg" >
+
  <button class="button"type="submit" name="addbook">Add Book</button>
  </div>
 </form>

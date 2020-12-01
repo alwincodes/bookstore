@@ -2,7 +2,7 @@
 <body id = "bodylogin">
  <div id="login">
     <form action="backend/login.inc.php" method="post">
-      <div class ="inputfield">
+      <div class ="inputfieldlogin">
         <h1>Login</h1>
         <input type="text" name="username" placeholder="Username/Email" class="login_text">
         <input type="password" name="password" placeholder="Password" class="login_text" id="pass1" >

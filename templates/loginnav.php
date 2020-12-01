@@ -29,8 +29,8 @@ if(isset($_SESSION["auth"])){
 <header class ="navigation">
         <ul>
         <h1 id="logo" style = "display:inline;"><a id="navlinks" href="./index.php">Book Store </a></h1>
-          <li><a id="navlinks" href="./signup.php">Sign-Up</a></li>
-          <li><a id="navlinks" href="./index.php">Login</a></li>
+          <li><a id="navlinks" href="/signup.php">Sign-Up</a></li>
+          <li><a id="navlinks" href="/index.php">Login</a></li>
           </ul>  
 </header>
 <hr>
