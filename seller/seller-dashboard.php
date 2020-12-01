@@ -47,6 +47,7 @@ $sellerid = $_SESSION["uid"];
       else{
           echo('
          <h4>You have no books</h4>
+         <a style="color:blue"href="/seller/addbook.php">Click here to add some books and get started</a>
          ');
       }
        ?>

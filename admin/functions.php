@@ -30,6 +30,16 @@ if(isset($_GET["deletebookid"]) && isset($_GET['img'])){
         echo("<h4>something went wrong</h4>");
     }
  }
+ if(isset($_GET["sellerid"]) && isset($_GET["sellername"])) {
+    $sellerid = $_GET['sellerid'];
+    $sellername = $_GET['sellername'];
+    if(adminDeleteCustomer($conn,$sellerid)){
+         rmdir("../images/".$sellername);
+        header("location:/admin/sellers.php");
+    }else{
+        echo("<h4>something went wrong</h4>");
+    }
+ }
 
  else{
     echo("lol");

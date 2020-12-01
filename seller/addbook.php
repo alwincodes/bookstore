@@ -8,7 +8,7 @@ $auth =$_SESSION["auth"];
 ?>
 
 <form  action="" method="post" enctype = "multipart/form-data">
- <div class ="inputfieldlogin">
+ <div class ="inputfield">
   <h4>Add Your Book</h4>
   <input class="login_text" type ="text" name="bname"placeholder="Book name">
   <input class="login_text" type ="text" name="isbn"placeholder="Book isbn">
