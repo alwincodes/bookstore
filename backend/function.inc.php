@@ -416,3 +416,33 @@ function updateOrderStatus($conn,$oid,$sellerid,$currentStatus) {
   }
   mysqli_stmt_close($stmt);
  }
+ //for admin operations
+ function adminDeletOrder($conn,$oid){
+  $sql="delete  from orders WHERE oid = ?;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt,'s',$oid);
+  if(mysqli_stmt_execute($stmt)){
+    return true;
+  }else{
+    return false;
+  }
+}
+function adminDeleteCustomer($conn,$customerid){
+  $sql="delete  from users WHERE usersID = ?;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt,'s',$customerid);
+  if(mysqli_stmt_execute($stmt)){
+    return true;
+  }else{
+    return false;
+  }
+}
+ 

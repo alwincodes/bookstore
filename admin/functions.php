@@ -14,7 +14,23 @@ if(isset($_GET["deletebookid"]) && isset($_GET['img'])){
         echo("<h4>something went wrong</h4>");
     }
 }
+ if (isset($_GET["orderid"])){
+    $oid =$_GET["orderid"];
+    if(adminDeletOrder($conn,$oid)){
+        header("location:/admin/allorders.php");
+    }else{
+        echo("<h4>something went wrong</h4>");
+    }
+ }
+ if(isset($_GET["customerid"])){
+    $customerid = $_GET['customerid'];
+    if(adminDeleteCustomer($conn,$customerid)){
+        header("location:/admin/customers.php");
+    }else{
+        echo("<h4>something went wrong</h4>");
+    }
+ }
 
-else{
+ else{
     echo("lol");
-}
+ }

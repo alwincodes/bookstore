@@ -13,6 +13,7 @@ $sellerid = $_SESSION["uid"];
         <h3>All  orders</h3>
         <table id="customers">
         <tr>
+          <th>OrderId</th>
           <th>Id</th>
           <th>Name</th>
           <th>isbn</th>
@@ -20,20 +21,21 @@ $sellerid = $_SESSION["uid"];
           <th>price</th>
           <th>category</th>
           <th>Delete</th>
-          <th>Update</th>
+
         </tr>
         ');
         while($row = mysqli_fetch_assoc($products)){
           echo('
           <tr>
+          <td>'.$row['oid'].'</td>
           <td>'.$row['bid'].'</td>
           <td>'.$row['addr'].'</td>
           <td>'.$row['pincode'].'</td>
           <td>'.$row['city'].'</td>
           <td>'.$row['dist'].'</td>
           <td>'.$row['dist'].'</td>
-          <td>Delete</td>
-          <td>update</td>
+          <td><a style="color:blue"href="./functions.php?orderid='.$row["oid"].'">Delete</a></td>
+
         </tr>
         ');
         }

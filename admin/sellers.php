@@ -20,7 +20,7 @@ $sellerid = $_SESSION["uid"];
           <th>Email</th>
           <th>Phone no</th>
           <th>Delete</th>
-          <th>Update</th>
+
         </tr>
         ');
         while($row = mysqli_fetch_assoc($products)){
@@ -32,8 +32,8 @@ $sellerid = $_SESSION["uid"];
           <td>'.$row['lname'].'</td>
           <td>'.$row['email'].'</td>
           <td>'.$row['phoneno'].'</td>
-          <td>Delete</td>
-          <td>update</td>
+          <td><a style="color:blue"href="./functions.php?customerid='.$row["usersId"].'">Delete</a></td>
+
         </tr>
         ');
         }
