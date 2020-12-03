@@ -163,7 +163,8 @@ function loginUser($conn,$username,$password){
 function getBooks($conn,$sql){
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt,$sql)){
-    header("location:/seller/seller-dashboard.php?error=stmtfailed");
+   // header("location:/index.php?error=stmtfailed");
+   echo("statement failed");
     exit();
   }
   mysqli_stmt_execute($stmt);

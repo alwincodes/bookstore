@@ -11,10 +11,10 @@
         <?php
          if(isset($_GET["error"])){
            if($_GET["error"]=="signupdone"){
-              echo("<p> Sign Up completed log in !! </p>");
+              echo("<p class='success'> Sign Up completed log in !! </p>");
             }
             if($_GET["error"]=="loggedout"){
-              echo("<p> Logged out !! </p>");
+              echo("<p class='success'> Logged out !! </p>");
             }
           }
         ?>
@@ -23,10 +23,10 @@
         <?php
          if(isset($_GET["error"])){
            if($_GET["error"]=="invalidlogin"){
-              echo("<p>Wrong Username or Password! </p>");
+              echo("<p class='success' >Wrong Username or Password! </p>");
             }
             if($_GET["error"]=="emptyinput"){
-              echo("<p>Enter Username and Password! </p>");
+              echo("<p class='success' >Enter Username and Password! </p>");
             }
           }
         ?>
