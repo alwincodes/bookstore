@@ -1,5 +1,6 @@
 <?php
 session_start();
+include ($_SERVER['DOCUMENT_ROOT']."/backend/cartfunctions.inc.php");
 if(isset($_SESSION["auth"])){
     $auth = $_SESSION["auth"];
     if($auth === 1 ){
@@ -21,7 +22,7 @@ else if(!isset($_SESSION["auth"] )){
     <title>Book Store</title>
 
     </script>
-    <script src="../style/javascript/functions.js"></script>
+    <script src="/style/javascript/functions.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,200;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style/styles.css">
 </head>
@@ -35,6 +36,7 @@ else if(!isset($_SESSION["auth"] )){
            </div>
         <ul>
         <h1 id="logo" style = "display:inline;"><a id="navlinks" href="/store/allbooks.php">Book Store </a></h1>
+          <li><a id="navlinks" href="/store/books-display-buy/viewcart.php"><img style="width:30px" src="/images/assets/cart.png"><i style="text-align:right;vertical-align: top;"><?php echo(nOfElementsCart()); ?></i></a></li>
           <li><a id="navlinks" href="/store/search.php">Search</a></li>
           <li><a id="navlinks" href="/store/categories.php">Categories</a></li>
           <li><a id="navlinks" href="/store/allbooks.php">All Books</a></li>

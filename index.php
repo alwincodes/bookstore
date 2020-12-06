@@ -1,5 +1,7 @@
 <?php require "templates/loginnav.php" ?>
-<body id = "bodylogin">
+<body>
+
+
  <div id="login">
     <form action="backend/login.inc.php" method="post">
       <div class ="inputfieldlogin">
@@ -35,4 +37,5 @@
      </div>
     </form>
  </div>
+
 <?php require "templates/footer.php" ?>

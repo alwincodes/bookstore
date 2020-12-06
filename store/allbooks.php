@@ -5,10 +5,10 @@
   ?>
   <body>
   <div class="content">
-  <h3 id ="results">All Books</h3>
+  <h3 id ="results">All Books (A - Z)</h3>
     <div id="products">
      <?php
-      $sql="select * from books;";
+      $sql="select * from books order by book_name ASC;";
       $products=getBooks($conn,$sql);
 
       if($products!==false){

@@ -15,7 +15,9 @@
                     <div id="product_final">
                     <img class="product_images_final"src="'.$bookdata['book_img'].'" alt="product image">
                     <div id="order">
-                        <a class = "order_items"href="/store/books-display-buy/customer_createorder.php?bid='.$bookdata['bid'].'">Buy Now</a>
+                        <a class = "order_items"href="/store/books-display-buy/customer_createorder.php?bid='.$bookdata['bid'].'">Buy</a>
+
+                        <a class = "cart_items"href="/store/books-display-buy/addtocart.php?cartbid='.$bookdata['bid'].'">Cart</a>
                     </div>
                     </div>
                 </div>
@@ -46,5 +48,7 @@
             </body>
             ');
       }
+    }else{
+        header("location:/store/allbooks.php");
     }
   ?>
