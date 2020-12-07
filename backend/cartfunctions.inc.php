@@ -38,7 +38,7 @@ function deleteAllCart(){
     if(!isset($_COOKIE['cart'])){
         return false;
     }else{
-        setcookie('cart',"",time()-1);
+        setcookie('cart',"",time()-1,"/");
         return true;
     }
 }

@@ -16,7 +16,7 @@
 
         echo('
         <div class="cartitem">
-          <img class ="cartimg"src="'.$bookdata['book_img'].'">
+          <a href="/store/books-display-buy/displaypage.php?bid='.$bookdata['bid'].'"><img class ="cartimg"src="'.$bookdata['book_img'].'"></a>
           <div class="cartinfo">
               <p>'.$bookdata['book_name'].'</p>
               <p>Price: '.$bookdata['book_price'].'/-</p>
@@ -34,7 +34,7 @@
          ');
          $index++;
        }
-       
+       echo('<a class="cartfns" href="/store/books-display-buy/cart_createorder.php?cart=buy">Order items</a>');
        }else{
         echo("<h1>No items in cart!!<h1>");
        }

@@ -367,16 +367,16 @@ function userBookData($conn,$bid){
   mysqli_stmt_close($stmt);
  }
  //function for users to create orderss
- function createOrder($conn,$bid,$uid,$pincode,$address,$city,$district,$state) {
-    $sql ="INSERT INTO orders (bid,uid,pincode,addr,city,dist,state) 
-    VALUES (?,?,?,?,?,?,?);";
+ function createOrder($conn,$bid,$uid,$pincode,$address,$city,$district,$state,$cname,$cphno,$cemail) {
+    $sql ="INSERT INTO orders (bid,uid,pincode,addr,city,dist,state,c_fname,c_ph,c_email) 
+    VALUES (?,?,?,?,?,?,?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)){
       return false;
       exit();
     }
   
-    mysqli_stmt_bind_param($stmt,"sssssss",$bid,$uid,$pincode,$address,$city,$district,$state);
+    mysqli_stmt_bind_param($stmt,"ssssssssss",$bid,$uid,$pincode,$address,$city,$district,$state,$cname,$cphno,$cemail);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     return true;
