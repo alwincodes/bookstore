@@ -449,7 +449,11 @@ function adminDeleteCustomer($conn,$customerid){
  //for getting reviews for books
  function getAllReviewCustomer($conn,$customer,$bid){
   $result;
-  $sql = "SELECT * FROM reviews WHERE uid != ? AND bid = ?;";
+  $sql = "SELECT reviews.book_review,reviews.rid,users.username 
+  FROM reviews 
+  INNER JOIN users
+  ON users.usersId = reviews.uid
+  WHERE uid != ? AND bid = ?;";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt,$sql)){
     return false;
@@ -473,7 +477,11 @@ function adminDeleteCustomer($conn,$customerid){
  }
  function getMyReviewCustomer($conn,$customer,$bid){
   $result;
-  $sql = "SELECT * FROM reviews WHERE uid = ? AND bid = ?;";
+  $sql = "SELECT reviews.book_review,reviews.rid,users.username 
+  FROM reviews 
+  INNER JOIN users
+  ON users.usersId = reviews.uid
+  WHERE uid = ? AND bid = ?;";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt,$sql)){
     return false;
@@ -494,4 +502,31 @@ function adminDeleteCustomer($conn,$customerid){
     return $result;
   }
   mysqli_stmt_close($stmt);
+ }
+ //customer posting reviews
+ function postMyReviewCustomer($conn,$customer,$bid,$review){
+  $result;
+  $sql = "INSERT INTO reviews (bid,uid,book_review) VALUES (?,?,?);";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt,"sss",$bid,$customer,$review);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+  return true;
+ }
+ function customerDeleteReview($conn,$deleteid){
+  $result;
+  $sql = "DELETE FROM reviews WHERE rid = ?;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt,"s",$deleteid);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+  return true;
  }

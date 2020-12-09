@@ -59,9 +59,9 @@
                 echo('
              <h2>Post your review!</h2>
              <div class="reviewitem" >
-                   <form action="" method="post" style="height:200px">
+                   <form action="/store/books-display-buy/review.php?bid='.$bid.'" method="post" style="height:200px">
                        <textarea placeholder="Post your review!" class="review_text_area" name="review" id="" cols="30" rows="10"></textarea>
-                       <div class="reviewbtn"><input type="submit" class="button" value="Post review"></div>
+                       <div class="reviewbtn"><input type="submit" name="reviewbt"class="button" value="Post review"></div>
                    </form>
              </div> ');
                
@@ -70,12 +70,12 @@
                 <h2>Your review</h2>
                 <div class="cartitem">
                    <div class="cartdesc" style="font-weight:bold">
-                   <p><i>'.$_SESSION["username"].'</i></p><hr>
+                   <p><i>'.$myreview[0]["username"].'</i></p><hr>
                    '.$myreview[0]["book_review"].'
                    
                    </div>
                    <div class="cartdelete" >
-                   <a class="cartfns" href="/store/books-display-buy/addtocart.php?cartdelete=">delete</a>
+                   <a class="cartfns" href="/store/books-display-buy/review.php?deleterev='.$myreview[0]["rid"].'&bid='.$bid.'">delete</a>
                    </div>
                  </div>
                  ');
@@ -93,7 +93,7 @@
       echo('
             <div class="cartitem">
             <div class="cartdesc" style="font-weight:bold">
-            <p><i>'.$_SESSION["username"].'</i></p><hr>
+            <p><i>'.$review["username"].'</i></p><hr>
             '.$review["book_review"].'
             </div>
             </div>
