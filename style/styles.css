@@ -68,6 +68,23 @@
     outline: none;
     margin: 8px;
   }
+  .review_text_area{
+    margin:0 auto;
+    width:100%;
+    border-radius:30px;
+    border:1px solid #b1afaf;
+    height:100px;
+    padding-left: 20px;
+    font-size:16px;
+    outline: none;
+    margin: 8px;
+    resize: none;
+  }
+  .review_text_area:hover{
+    transition: ease-in-out ;
+    transition-delay: 0.2s;
+    box-shadow: 4px 4px 12px grey;
+  }
   .login_text :hover, .login_text_area:hover{
     box-shadow: 1px 1px 8px 1px #dcdcdc;
   }
@@ -413,6 +430,16 @@
   margin:10px 0px;
   box-shadow: 5px 4px 12px grey;
  
+}
+.reviewitem{
+  width: 100%;
+  height: 220px;
+  border-radius: 8px;
+  margin:10px 0px;
+ 
+}
+.reviewbtn{
+  margin:auto 20px;
 }
 .cartimg{
   height: 170px;

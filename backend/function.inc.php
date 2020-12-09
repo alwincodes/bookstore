@@ -446,4 +446,52 @@ function adminDeleteCustomer($conn,$customerid){
     return false;
   }
 }
- 
+ //for getting reviews for books
+ function getAllReviewCustomer($conn,$customer,$bid){
+  $result;
+  $sql = "SELECT * FROM reviews WHERE uid != ? AND bid = ?;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt,"ss",$customer,$bid);
+  mysqli_stmt_execute($stmt);
+
+  $resultData = mysqli_stmt_get_result($stmt);
+  if(mysqli_num_rows($resultData)>0){
+  while($row = mysqli_fetch_assoc($resultData)){
+    $result[]=$row;
+  }
+  return $result;
+ }
+  else{
+    $result = false;
+    return $result;
+  }
+  mysqli_stmt_close($stmt);
+ }
+ function getMyReviewCustomer($conn,$customer,$bid){
+  $result;
+  $sql = "SELECT * FROM reviews WHERE uid = ? AND bid = ?;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt,"ss",$customer,$bid);
+  mysqli_stmt_execute($stmt);
+
+  $resultData = mysqli_stmt_get_result($stmt);
+  if(mysqli_num_rows($resultData)>0){
+  while($row = mysqli_fetch_assoc($resultData)){
+    $result[]=$row;
+  }
+  return $result;
+ }
+  else{
+    $result = false;
+    return $result;
+  }
+  mysqli_stmt_close($stmt);
+ }

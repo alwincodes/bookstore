@@ -36,7 +36,7 @@ else if(!isset($_SESSION["auth"] )){
            </div>
         <ul>
         <h1 id="logo" style = "display:inline;"><a id="navlinks" href="/store/allbooks.php">Book Store </a></h1>
-          <li><a id="navlinks" href="/store/books-display-buy/viewcart.php"><img style="width:30px" src="/images/assets/cart.png"><i style="text-align:right;vertical-align: top;"><?php echo(nOfElementsCart()); ?></i></a></li>
+          <li><a id="navlinks" href="/store/books-display-buy/viewcart.php"><img style="width:30px" src="/images/assets/cart.png"><i style="text-align:center;display:inline-block;height:25px;width:25px;vertical-align: top;background-color:#bbb;border-radius:50%;padding:2px"><?php echo(nOfElementsCart()); ?></i></a></li>
           <li><a id="navlinks" href="/store/search.php">Search</a></li>
           <li><a id="navlinks" href="/store/categories.php">Categories</a></li>
           <li><a id="navlinks" href="/store/allbooks.php">All Books</a></li>

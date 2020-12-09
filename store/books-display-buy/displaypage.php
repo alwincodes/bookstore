@@ -4,6 +4,7 @@
    require "../../backend/function.inc.php";
    if(isset($_GET["bid"])){
       $bid=$_GET["bid"];
+      $uid = $_SESSION["uid"];
       $bookdata = userBookData($conn,$bid);
       if($bookdata !== false){
         echo('
@@ -45,10 +46,64 @@
                     </div>
                 </div>
                     
-            </body>
             ');
+      } 
+      ?>
+      <div id="products">
+
+            <?php
+            //to display the users review or allow them to post a review
+            $myreview = getMyReviewCustomer($conn,$uid,$bid);
+            if($myreview == false){
+                
+                echo('
+             <h2>Post your review!</h2>
+             <div class="reviewitem" >
+                   <form action="" method="post" style="height:200px">
+                       <textarea placeholder="Post your review!" class="review_text_area" name="review" id="" cols="30" rows="10"></textarea>
+                       <div class="reviewbtn"><input type="submit" class="button" value="Post review"></div>
+                   </form>
+             </div> ');
+               
+            }else{
+                echo('
+                <h2>Your review</h2>
+                <div class="cartitem">
+                   <div class="cartdesc" style="font-weight:bold">
+                   <p><i>'.$_SESSION["username"].'</i></p><hr>
+                   '.$myreview[0]["book_review"].'
+                   
+                   </div>
+                   <div class="cartdelete" >
+                   <a class="cartfns" href="/store/books-display-buy/addtocart.php?cartdelete=">delete</a>
+                   </div>
+                 </div>
+                 ');
+            }
+            ?>
+
+      </div>
+      <div id="products">
+      <?php
+      //get all the reviews posted by other customers
+      $reviews = getAllReviewCustomer($conn,$uid,$bid);
+      if($reviews != false){
+          echo("<h2>All reviews</h2>");
+      foreach($reviews as $review){
+      echo('
+            <div class="cartitem">
+            <div class="cartdesc" style="font-weight:bold">
+            <p><i>'.$_SESSION["username"].'</i></p><hr>
+            '.$review["book_review"].'
+            </div>
+            </div>
+      ');
       }
+    }else{
+        echo("<h1>This book has no other reviews</h1>");
+    }
     }else{
         header("location:/store/allbooks.php");
     }
   ?>
+  </div>

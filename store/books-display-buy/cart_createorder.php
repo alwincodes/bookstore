@@ -41,6 +41,7 @@
                     exit();
                      }
                 }
+                //deleting cart elements after all items has been ordered 
                 deleteAllCart();
                 header("location:/store/books-display-buy/viewcart.php?status=success");
             } else{

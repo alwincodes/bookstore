@@ -37,9 +37,9 @@
           <tr>
           <td>'.$row['oid'].'</td>
           <td><a style="color:blue"href="/store/books-display-buy/displaypage.php?bid='.$row['bid'].'">'.$row['bid'].'</a></td>
-          <td>'.$_SESSION['fname'].''." ".''.$_SESSION['lname'].'</td>
-          <td>'.$_SESSION['email'].'</td>
-          <td>'.$_SESSION['phno'].'</td>
+          <td>'.$row['c_fname'].'</td>
+          <td>'.$row['c_email'].'</td>
+          <td>'.$row['c_ph'].'</td>
           <td>'.$row['addr'].'</td>
           <td>'.$row['pincode'].'</td>
           <td>'.$row['city'].'</td>
