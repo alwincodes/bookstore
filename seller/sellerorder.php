@@ -57,7 +57,7 @@ $sellerid = $_SESSION["uid"];
           <td>'.$row['dist'].'</td>
           <td>'.$row['state'].'</td>
           <td style="font-weight: bold;color:'.$colordef.'">'.$row['status'].'</td>
-          <td><a href="/seller/orderupdate.php?oid='.$row['oid'].'">update</a></td>
+          <td><a class = "button btn_green" href="/seller/orderupdate.php?oid='.$row['oid'].'">update</a></td>
         </tr>
         ');
         }

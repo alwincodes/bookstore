@@ -1,9 +1,13 @@
 <?php
-   require "../../templates/storenav.php";
-   require "../../backend/dbh.inc.php";
-   require "../../backend/function.inc.php";
-   if(isset($_GET["bid"])){
-      $bid=$_GET["bid"];
+require "../templates/sellernav.php";
+require "../backend/dbh.inc.php";
+require "../backend/function.inc.php";
+$sid =$_SESSION["uid"];
+ if(!isset($_GET["bid"])){
+     echo("error");
+     exit();
+ }
+     $bid=$_GET["bid"];
       $uid = $_SESSION["uid"];
       $bookdata = userBookData($conn,$bid);
       if($bookdata !== false){
@@ -15,11 +19,7 @@
                     <p class="author_final">(<a href="https://www.google.com/search?q='.$bookdata['book_author'].'">'.$bookdata['book_author'].'</a>)</p>
                     <div id="product_final">
                     <img class="product_images_final"src="'.$bookdata['book_img'].'" alt="product image">
-                    <div id="order">
-                        <a class = "order_items"href="/store/books-display-buy/customer_createorder.php?bid='.$bookdata['bid'].'">Buy</a>
-
-                        <a class = "cart_items"href="/store/books-display-buy/addtocart.php?cartbid='.$bookdata['bid'].'">Cart</a>
-                    </div>
+                   
                     </div>
                 </div>
                 
@@ -50,43 +50,9 @@
       } 
       ?>
       <div id="products">
-
-            <?php
-            //to display the users review or allow them to post a review
-            $myreview = getMyReviewCustomer($conn,$uid,$bid);
-            if($myreview == false){
-                
-                echo('
-             <h2>Post your review!</h2>
-             <div class="reviewitem" >
-                   <form action="/store/books-display-buy/review.php?bid='.$bid.'" method="post" style="height:200px">
-                       <textarea placeholder="Post your review!" class="review_text_area" name="review" id="" cols="30" rows="10"></textarea>
-                       <div class="reviewbtn"><input type="submit" name="reviewbt"class="button" value="Post review"></div>
-                   </form>
-             </div> ');
-               
-            }else{
-                echo('
-                <h2>Your review</h2>
-                <div class="cartitem">
-                   <div class="cartdesc" style="font-weight:bold">
-                   <p><i>'.$myreview[0]["username"].'</i></p><hr>
-                   '.$myreview[0]["book_review"].'
-                   
-                   </div>
-                   <div class="cartdelete" >
-                   <a class="cartfns" href="/store/books-display-buy/review.php?deleterev='.$myreview[0]["rid"].'&bid='.$bid.'">delete</a>
-                   </div>
-                 </div>
-                 ');
-            }
-            ?>
-
-      </div>
-      <div id="products">
       <?php
       //get all the reviews posted by other customers
-      $reviews = getAllReviewCustomer($conn,$uid,$bid);
+      $reviews = getAllReviewCustomer($conn,0,$bid);
       if($reviews != false){
           echo("<h2>All reviews</h2>");
       foreach($reviews as $review){
@@ -101,11 +67,6 @@
       }
     }else{
         echo("<h1>This book has no other reviews</h1>");
-    }
-    }
-    //closes the main isset fn ( was confusing for me too)
-    else{
-        header("location:/store/allbooks.php");
     }
   ?>
   </div>

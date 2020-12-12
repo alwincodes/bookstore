@@ -10,7 +10,6 @@
      <?php
       $sql="select * from books order by book_name ASC;";
       $products=getBooks($conn,$sql);
-
       if($products!==false){
         while($row = mysqli_fetch_assoc($products)){
           echo('

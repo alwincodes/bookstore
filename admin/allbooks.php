@@ -41,7 +41,7 @@ $sellerid = $_SESSION["uid"];
           <td>'.$row['category'].'</td>
           <td>'.$row['username'].'</td>
           <td>'.$row['phoneno'].', '.$row['email'].'</td>
-          <td ><a style="color:blue"href="./functions.php?deletebookid='.$row['bid'].'&img='.$row['book_img'].'">Delete</a></td>
+          <td ><a class = "button btn_red" href="./functions.php?deletebookid='.$row['bid'].'&img='.$row['book_img'].'">Delete</a></td>
         </tr>
         ');
         }

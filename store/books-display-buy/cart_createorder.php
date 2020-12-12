@@ -33,6 +33,9 @@
             $district = $_POST['district'];
             $state = $_POST['state'];
             //looping order creation untill full cart is added
+            if(empty($cname)||empty($cphno)||empty($cemail)||empty($pincode)||empty($address)||empty($city)||empty($district)||empty($state)){
+               exit();
+            }
             $cartitems = displayCart();
             if(nOfElementsCart()>0) {
               foreach($cartitems as $item) {

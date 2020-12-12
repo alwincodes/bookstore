@@ -32,7 +32,7 @@ $sellerid = $_SESSION["uid"];
           <td>'.$row['lname'].'</td>
           <td>'.$row['email'].'</td>
           <td>'.$row['phoneno'].'</td>
-          <td><a style="color:blue"href="./functions.php?customerid='.$row["usersId"].'">Delete</a></td>
+          <td><a class = "button btn_red" href="./functions.php?customerid='.$row["usersId"].'">Delete</a></td>
 
         </tr>
         ');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 30, 2020 at 01:26 PM
+-- Generation Time: Dec 09, 2020 at 02:02 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `book_author` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`bid`),
   KEY `seller_id` (`seller_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `books`
@@ -56,8 +56,7 @@ INSERT INTO `books` (`bid`, `book_name`, `book_isbn`, `book_img`, `book_desc`, `
 (10, 'Woman in the dunes', '9780679733782', '/images/appukuttan/5fc1d5c44a8c38.85700202.jpg', ' In 1955,[1] Jumpei Niki,[2] a schoolteacher from Tokyo, visits a fishing village to collect insects. After missing the last bus, he is led by the villagers, in an act of apparent hospitality, to a house in the dunes that can be reached only by rope ladder. The next morning the ladder is gone and he finds he is expected to keep the house clear of sand with the woman living there, with whom he is also to produce children. He ultimately finds a way to collect water which gives him a purpose and a sense of liberty. He also wants to share the knowledge of his technique of water collection with the villagers someday. He eventually gives up trying to escape when he comes to realize that returning to his old life would give him no more liberty. He accepts his new identity and family. After seven years, he is proclaimed officially dead.', 50, 200, 10, 'thriller', 1999, 'kobo abe'),
 (17, 'A mans search for meaining', '080701429X', '/images/appukuttan/5fc3208e5759b2.47235883.jpg', 'Man\'s Search for Meaning is a 1946 book by Viktor Frankl chronicling his experiences as a prisoner in Nazi concentration camps during World War II, and describing his psychotherapeutic method, which involved identifying a purpose in life to feel positive about, and then immersively imagining that outcome. According to Frankl, the way a prisoner imagined the future affected his longevity. The book intends to answer the question \"How was everyday life in a concentration camp reflected in the mind of the average prisoner?\" Part One constitutes Frankl\'s analysis of his experiences in the concentration camps, while Part Two introduces his ideas of meaning and his theory called logotherapy.', 33, 455, 10, 'other', 1965, 'Victor E frankyl'),
 (16, 'The time machine', '9781936594115', '/images/appukuttan/5fc26ed0cf95e9.18039392.jpg', 'The Time Machine is a science fiction novella by H. G. Wells, published in 1895 and written as a frame narrative. The work is generally credited with the popularization of the concept of time travel by using a vehicle or device to travel purposely and selectively forward or backward through time. The term \"time machine\", coined by Wells, is now almost universally used to refer to such a vehicle or device.[1]\r\n\r\nThe Time Machine has been adapted into three feature films of the same name, as well as two television versions and many comic book adaptations. It has also indirectly inspired many more works of fiction in many media productions.', 33, 999, 10, 'scifi', 1895, 'H.G wells'),
-(18, 'crime and punishment', '1234567890', '/images/appukuttan/5fc33818d83e04.54430594.jpg', 'Crime and Punishment (pre-reform Russian: Преступленіе и наказаніе; post-reform Russian: Преступление и наказание, tr. Prestupléniye i nakazániye, IPA: [prʲɪstʊˈplʲenʲɪje ɪ nəkɐˈzanʲɪje]) is a novel by the Russian author Fyodor Dostoevsky. It was first published in the literary journal The Russian Messenger in twelve monthly installments during 1866.[1] It was later published in a single volume. It is the second of Dostoevsky\'s full-length novels following his return from ten years of exile in Siberia. Crime and Punishment is considered the first great novel of his \"mature\" period of writing.[2] The novel is often cited as one of the supreme achievements in literature.[3][4][5][6]\r\n\r\nCrime and Punishment focuses on the mental anguish and moral dilemmas of Rodion Raskolnikov, an impoverished ex-student in Saint Petersburg who formulates a plan to kill an unscrupulous pawnbroker for her money. Before the killing, Raskolnikov believes that with the money he could liberate himself from pov', 23, 232, 10, 'thriller', 1895, 'fyodor dostoevsky'),
-(22, 'sun and steel', '1234567890', '/images/alwin123/5fc4df6ac01684.86715935.jpg', 'ggggggggg', 5, 5, 14, 'fantasy', 5555, '55');
+(23, 'The alchemist', '1234567890', '/images/appukuttan/5fc9d8acdc6f59.70606023.jpg', 'something random af', 22, 22, 10, 'adventure', 3323, 'paulo coehelo');
 
 -- --------------------------------------------------------
 
@@ -76,20 +75,74 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `dist` varchar(64) DEFAULT NULL,
   `state` varchar(24) DEFAULT NULL,
   `status` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'pending',
-  PRIMARY KEY (`oid`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `c_fname` varchar(120) DEFAULT NULL,
+  `c_ph` varchar(20) DEFAULT NULL,
+  `c_email` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`oid`),
+  KEY `bid` (`bid`),
+  KEY `uid` (`uid`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`oid`, `bid`, `uid`, `pincode`, `addr`, `city`, `dist`, `state`, `status`) VALUES
-(1, 10, 6, 686651, 'pattimavil h ullandu po prvithanm', 'pala', 'kottayam', 'kerala', 'delivered'),
-(2, 11, 6, 686651, ' pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'confirmed'),
-(3, 4, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'shipped'),
-(4, 12, 6, 686651, 'pattimavil (h) ullanadu p.o pravithanam', 'pala', 'kottayam', 'kerala', 'cancelled'),
-(5, 12, 12, 686651, 'mankaat (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'confirmed'),
-(6, 19, 12, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'confirmed');
+INSERT INTO `orders` (`oid`, `bid`, `uid`, `pincode`, `addr`, `city`, `dist`, `state`, `status`, `c_fname`, `c_ph`, `c_email`) VALUES
+(2, 11, 6, 686651, ' pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'confirmed', NULL, NULL, NULL),
+(3, 4, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'shipped', NULL, NULL, NULL),
+(4, 12, 6, 686651, 'pattimavil (h) ullanadu p.o pravithanam', 'pala', 'kottayam', 'kerala', 'cancelled', NULL, NULL, NULL),
+(5, 12, 12, 686651, 'mankaat (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'shipped', NULL, NULL, NULL),
+(7, 12, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'pending', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com'),
+(8, 12, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'pending', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com'),
+(9, 12, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'pending', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com'),
+(10, 12, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'pending', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com'),
+(11, 12, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'pending', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com'),
+(12, 12, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'pending', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com'),
+(13, 15, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'pending', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com'),
+(14, 12, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'pending', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com'),
+(15, 11, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'pending', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com'),
+(16, 4, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'pending', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com'),
+(17, 15, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'pending', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com'),
+(18, 12, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'pending', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com'),
+(19, 11, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'cancelled', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com'),
+(20, 4, 6, 686651, 'pattimavil (h) ullanadu p,o pravithanam', 'pala', 'kottayam', 'kerala', 'cancelled', 'alwin mathew', '9446547305', 'alwinmathew4@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+DROP TABLE IF EXISTS `reviews`;
+CREATE TABLE IF NOT EXISTS `reviews` (
+  `rid` int NOT NULL AUTO_INCREMENT,
+  `bid` int DEFAULT NULL,
+  `uid` int DEFAULT NULL,
+  `book_review` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`rid`),
+  KEY `bid` (`bid`),
+  KEY `uid` (`uid`)
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`rid`, `bid`, `uid`, `book_review`) VALUES
+(1, 4, 6, 'really good book'),
+(2, 4, 6, 'best book ever to exist here'),
+(3, 15, 17, 'really a great book by yukio mishima one of my favourites of his'),
+(4, 11, 17, 'great book by yukio mishima great read recommended 100'),
+(5, 11, 17, 'great book by yukio mishima great read recommended 100'),
+(6, 17, 17, 'great book highly recommended'),
+(9, 10, 17, 'hehehehehehehheheheheheehehhehehhe lol'),
+(10, 23, 17, 'addddddddddddddddddddddddddddddddddddddd'),
+(11, 16, 17, 'ddddddddddddddddddddddddddd'),
+(12, NULL, 17, 'also a very good book written by aruthati roy\r\n'),
+(13, 4, 17, 'also a very good book written by aruthati roy\r\n'),
+(17, 12, 6, 'very good by a good author\r\n'),
+(15, 17, 6, 'great book highly recommended'),
+(16, 11, 6, 'yukio mismimas all time best \r\n');
 
 -- --------------------------------------------------------
 
@@ -109,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `auth` int DEFAULT '2',
   PRIMARY KEY (`usersId`),
   UNIQUE KEY `userpass` (`userpass`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `users`
@@ -120,9 +173,7 @@ INSERT INTO `users` (`usersId`, `username`, `fname`, `lname`, `email`, `phoneno`
 (7, 'celine44', 'celine', 'mathew', 'celine42@gmail.com', '9496966305', '$2y$10$hqHvihF3Bpd0ECLTZx.Jo.g4..yxPwtTJi8TCE81Qgf3.Sjp16N.S', 2),
 (8, 'admin', 'admin', 'admin', 'admin@mail.com', '0000000000', '$2y$10$U65DHqckehaAGN4URYy/7.jewDLP4XBY4UGkGM7P/3CbX4rWdTEIi', 0),
 (10, 'appukuttan', 'appu', 'kuttan', 'appu@gmail.com', '9446547305', '$2y$10$0OIGxx8/fugMn3t/OZm24Op0f.wKYMHvqT8PhUQwIYyNdpvlA9DCe', 1),
-(11, 'celinestores', 'celine', 'mathew', 'celine66@gmail.com', '9446547305', '$2y$10$vtWdScdEirjHceX779waE.v/Rt3THT0XhOtYsjilubgCyLKfDkHS2', 1),
-(12, 'ammu44', 'ammu', 'kutty', 'ammu44@gmail.com', '9447539083', '$2y$10$l9CuuIRNN9SSPHCX1oWXBeiEkzKCWSh3QoZ5hP8NB6hzsPZsEDWqS', 2),
-(14, 'alwin123', 'alwin', 'mathew', 'alwinmathew4@hotmail.com', '9446547305', '$2y$10$cRywUxXgmwTjYd9CsVYczuHIU6I1DnzWVY0I2/sMzf2xkwEdGmfui', 1);
+(17, 'ammukutty', 'ammu', 'kutty', 'ammukutty@gmail.com', '9446547305', '$2y$10$dNo0S.yemOIJ.aick9ZwRuFV.QYu4taP7wzxAWhiEX0AD7bmt/onu', 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

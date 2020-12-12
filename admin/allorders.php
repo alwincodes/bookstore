@@ -61,7 +61,7 @@ $sellerid = $_SESSION["uid"];
           <td>'.$row['addr'].', '.$row['city'].', '.$row['dist'].', '.$row['state'].'</td>
           <td>'.$row['pincode'].'</td>
           <td style="font-weight: bold;color:'.$colordef.'">'.$row['status'].'</td>
-          <td><a style="color:blue"href="./functions.php?orderid='.$row["oid"].'">Delete</a></td>
+          <td><a class = "button btn_red"href="./functions.php?orderid='.$row["oid"].'">Delete</a></td>
 
         </tr>
         ');

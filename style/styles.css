@@ -11,6 +11,7 @@
   signup pages*/
 .navigation{
   padding: 8px;
+ /* background-color: #df7d0d;
   /*background:#4C8FFB;*/
   
   
@@ -70,7 +71,7 @@
   }
   .review_text_area{
     margin:0 auto;
-    width:100%;
+    width:95%;
     border-radius:30px;
     border:1px solid #b1afaf;
     height:100px;
@@ -112,7 +113,13 @@
     outline:none;
     cursor: pointer
   }
-  .button:hover{
+  .btn_red{
+    background-color: rgb(238, 23, 23);
+  }
+  .btn_green{
+    background-color: #4CAF50;
+  }
+    .button:hover{
     transition: 0.4s ease-in-out;
     border: 1px solid #4C8FFB;
     padding: 10px 20px;
