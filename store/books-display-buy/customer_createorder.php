@@ -33,15 +33,15 @@
          $city = $_POST['city'];
          $district = $_POST['district'];
          $state = $_POST['state'];
-         if(empty($cname)||empty($phno)||empty($cemail)||empty($pincode)||empty($address)||empty($city)||empty($district)||empty($state)){
-            header("location:/store/books_display_buy/customer_createorder.php?status=error");
+         if(empty($cname)||empty($cphno)||empty($cemail)||empty($pincode)||empty($address)||empty($city)||empty($district)||empty($state)){
+            echo('<p style="text-align: center; color:red; font-weight:bold"> Empty fields');
             exit();
          }
 
          if(createOrder($conn,$bid,$uid,$pincode,$address,$city,$district,$state,$cname,$cphno,$cemail)) {
             header("location:/store/books-display-buy/displaypage.php?bid=$bid&order=success");
             }else{
-               echo("order cant be created some error occured");
+               echo('<p style="text-align: center; color:red; font-weight:bold"> This item out of stock! or some error occured');
             }
          }
 

@@ -56,10 +56,6 @@ if(isset($_GET['bookid']) && isset($_GET['img'])){
             if($bookcat ==""){
                 $bookcat = $cat;
             }
-            if(empty($bookname||empty($isbn)||empty($bookdescription)||empty($bookprice)||empty($bookstock)||empty($bookcat)||empty($bookauthor)||empty($bookyear)||empty($bookimg)) {
-                echo("empty info");
-                exit();
-            }
 
             if(isbncheck($isbn)!==false){
                 echo("isbn not correct");

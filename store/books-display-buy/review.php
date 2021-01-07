@@ -9,7 +9,7 @@
       $review = $_POST["review"];
       $bid = $_GET['bid'];
       if(!empty($review)){
-          if(strlen($review)>450){
+          if(strlen($review)>100){
             if(postMyReviewCustomer($conn,$uid,$bid,$review)) {
                 header("location:/store/books-display-buy/displaypage.php?bid=".$bid."");
             }else{

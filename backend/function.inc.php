@@ -111,7 +111,7 @@ function createSeller($conn,$fname,$lname,$uname,$email,$phno,$pass){
     exit();
   }
   $hashedpwd = password_hash($pass,PASSWORD_DEFAULT);
-  $auth = 1;
+  $auth = -1;
   mysqli_stmt_bind_param($stmt,"sssssss",$uname,$fname,$lname,$email,$phno,$hashedpwd,$auth);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
@@ -379,8 +379,52 @@ function userBookData($conn,$bid){
     mysqli_stmt_bind_param($stmt,"ssssssssss",$bid,$uid,$pincode,$address,$city,$district,$state,$cname,$cphno,$cemail);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    return true;
+    if(orderUpdateQuantity($conn, $bid)){
+      return true;
+    }else{
+      return false;
+    }
+    
  }
+ function orderUpdateQuantity($conn, $bid){
+  $sql = "SELECT book_stock from books Where bid = ?;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt,"s",$bid);
+  mysqli_stmt_execute($stmt);
+
+  $resultData = mysqli_stmt_get_result($stmt);
+  if($row = mysqli_fetch_assoc($resultData)){
+    //ie if the stock exist then reduce it by one else return false
+    if($row['book_stock'] > 0) {
+      print_r($row["book_stock"]);
+      $sql1 = "UPDATE books set book_stock = book_stock - 1 Where bid = ?";
+      $stmt1 = mysqli_stmt_init($conn);
+      if (!mysqli_stmt_prepare($stmt1,$sql1)){
+        return false;
+        exit();
+      }
+      mysqli_stmt_bind_param($stmt1,"s",$bid);
+      if(mysqli_stmt_execute($stmt1)){
+        return true;
+      }
+      
+    }else{
+      return false;
+    }
+  }
+  else{
+    $result = false;
+    return $result;
+  }
+  mysqli_stmt_close($stmt);
+  mysqli_stmt_close($stmt1);
+}
+
 function updateOrderStatus($conn,$oid,$sellerid,$currentStatus) {
   $sql = " UPDATE orders
   INNER JOIN books ON orders.bid=books.bid

@@ -34,14 +34,15 @@
             $state = $_POST['state'];
             //looping order creation untill full cart is added
             if(empty($cname)||empty($cphno)||empty($cemail)||empty($pincode)||empty($address)||empty($city)||empty($district)||empty($state)){
+               echo('<p style="text-align: center; color:red; font-weight:bold"> Empty fields');
                exit();
             }
             $cartitems = displayCart();
             if(nOfElementsCart()>0) {
               foreach($cartitems as $item) {
                     if(!createOrder($conn,$item['bid'],$uid,$pincode,$address,$city,$district,$state,$cname,$cphno,$cemail)) {
-                    header("location:/store/books_display_buy/viewcart.php?status=error");
-                    exit();
+                      echo('<p style="text-align: center; color:red; font-weight:bold"> One or multiple of your item is either out of stock! or some error occured');
+                      exit();
                      }
                 }
                 //deleting cart elements after all items has been ordered 

@@ -25,10 +25,10 @@
         <?php
          if(isset($_GET["error"])){
            if($_GET["error"]=="invalidlogin"){
-              echo("<p class='success' >Wrong Username or Password! </p>");
+              echo("<p class='error' >Wrong Username or Password! </p>");
             }
             if($_GET["error"]=="emptyinput"){
-              echo("<p class='success' >Enter Username and Password! </p>");
+              echo("<p class='error' >Enter Username and Password! </p>");
             }
           }
         ?>
