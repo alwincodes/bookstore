@@ -574,3 +574,17 @@ function adminDeleteCustomer($conn,$customerid){
   mysqli_stmt_close($stmt);
   return true;
  }
+ //approve seller
+ function approveSeller($conn,$sid){
+  $result;
+  $sql = "UPDATE users SET auth = 1 where usersId = ?;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt,$sql)){
+    return false;
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt,"s",$sid);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+  return true;
+ }

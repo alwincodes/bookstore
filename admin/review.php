@@ -5,7 +5,7 @@ require "../backend/function.inc.php";
 $sellerid = $_SESSION["uid"];
 ?>
   <?php
-      $sql="select * from users where auth = 1;";
+      $sql="select * from reviews";
       $products=getBooks($conn,$sql);
 
       if($products!==false){
@@ -13,12 +13,11 @@ $sellerid = $_SESSION["uid"];
         <h3>All  sellers</h3>
         <table id="customers">
         <tr>
-          <th>Id</th>
-          <th>Username</th>
-          <th>First name</th>
-          <th>Last name</th>
-          <th>Email</th>
-          <th>Phone no</th>
+          <th>rId</th>
+          <th>bId</th>
+          <th>uId</th>
+          <th>Review</th>
+
           <th>Delete</th>
 
         </tr>
@@ -26,13 +25,12 @@ $sellerid = $_SESSION["uid"];
         while($row = mysqli_fetch_assoc($products)){
           echo('
           <tr>
-          <td>'.$row['usersId'].'</td>
-          <td>'.$row['username'].'</td>
-          <td>'.$row['fname'].'</td>
-          <td>'.$row['lname'].'</td>
-          <td>'.$row['email'].'</td>
-          <td>'.$row['phoneno'].'</td>
-          <td><a class = "button btn_red" href="./functions.php?sellerid='.$row["usersId"].'&sellername='.$row["username"].'">Delete</a></td>
+          <td>'.$row['rid'].'</td>
+          <td>'.$row['bid'].'</td>
+          <td>'.$row['uid'].'</td>
+          <td>'.$row['book_review'].'</td>
+
+          <td><a class = "button btn_red" href="./functions.php?rid='.$row["rid"].'">Delete</a></td>
 
         </tr>
         ');

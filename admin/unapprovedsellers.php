@@ -5,7 +5,7 @@ require "../backend/function.inc.php";
 $sellerid = $_SESSION["uid"];
 ?>
   <?php
-      $sql="select * from users where auth = 1;";
+      $sql="select * from users where auth = -1;";
       $products=getBooks($conn,$sql);
 
       if($products!==false){
@@ -19,6 +19,7 @@ $sellerid = $_SESSION["uid"];
           <th>Last name</th>
           <th>Email</th>
           <th>Phone no</th>
+          <th>Approve</th>
           <th>Delete</th>
 
         </tr>
@@ -32,6 +33,7 @@ $sellerid = $_SESSION["uid"];
           <td>'.$row['lname'].'</td>
           <td>'.$row['email'].'</td>
           <td>'.$row['phoneno'].'</td>
+          <td><a class = "button btn_green" href="./functions.php?approvesellerid='.$row["usersId"].'">Approve</a></td>
           <td><a class = "button btn_red" href="./functions.php?sellerid='.$row["usersId"].'&sellername='.$row["username"].'">Delete</a></td>
 
         </tr>
@@ -40,7 +42,7 @@ $sellerid = $_SESSION["uid"];
       }
       else{
           echo('
-         <h4>You have no sellers :( </h4>
+         <h4>You have no un approved sellers :) </h4>
          ');
       }
        ?>

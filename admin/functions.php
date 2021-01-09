@@ -40,6 +40,22 @@ if(isset($_GET["deletebookid"]) && isset($_GET['img'])){
         echo("<h4>something went wrong</h4>");
     }
  }
+ if(isset($_GET["approvesellerid"])) {
+    $sellerid = $_GET['approvesellerid'];
+    if(approveSeller($conn,$sellerid)){
+        header("location:/admin/unapprovedsellers.php");
+    }else{
+        echo("<h4>something went wrong</h4>");
+    }
+ }
+ if(isset($_GET["rid"])) {
+    $rid = $_GET['rid'];
+    if(customerDeleteReview($conn,$rid)){
+        header("location:/admin/review.php");
+    }else{
+        echo("<h4>something went wrong</h4>");
+    }
+ }
 
  else{
     echo("lol");
