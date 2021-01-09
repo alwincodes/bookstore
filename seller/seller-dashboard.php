@@ -21,6 +21,7 @@ $sellerid = $_SESSION["uid"];
           <th>price</th>
           <th>category</th>
           <th>Year</th>
+          <th>Stock</th>
           <th>author</th>
           <th>Delete</th>
           <th>Update</th>
@@ -37,6 +38,7 @@ $sellerid = $_SESSION["uid"];
           <td>'.$row['book_price'].'</td>
           <td>'.$row['category'].'</td>
           <td>'.$row['book_year'].'</td>
+          <td>'.$row['book_stock'].'</td>
           <td>'.$row['book_author'].'</td>
           <td><a class = "button btn_red" href="./deletebook.php?img='.$row['book_img'].'&bookid='.$row['bid'].'">Delete</a></td>
           <td><a class = "button btn_green"href="./updatebook.php?img='.$row['book_img'].'&bookid='.$row['bid'].'">Update</a></td>

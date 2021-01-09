@@ -10,7 +10,10 @@ if(isset($_SESSION["auth"])){
   }
   if($auth === 0 ){
       header("location:/admin/allbooks.php");
-  }  
+  }
+  if($auth === -1){
+    header("location:/others/unapprovedsellerlogin.php");
+  }
 }
 
 ?>

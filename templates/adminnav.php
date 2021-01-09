@@ -8,6 +8,9 @@ if(isset($_SESSION["auth"])){
     if($auth === 1 ){
         header("location:/seller/seller-dashboard.php");
     }  
+    else if ($auth!=0){
+        header("location:/index.php");
+    }
  }
 else if(!isset($_SESSION["auth"] )){
     header("location:/index.php");

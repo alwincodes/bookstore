@@ -9,6 +9,9 @@ if(isset($_SESSION["auth"])){
     if($auth === 0 ){
         header("location:/admin/allbooks.php");
     }
+    else if($auth!=2){
+        header("location:/index.php");
+    }
  }
 else if(!isset($_SESSION["auth"] )){
     header("location:/index.php");
