@@ -45,9 +45,10 @@
                       exit();
                      }
                 }
-                //deleting cart elements after all items has been ordered 
-                deleteAllCart();
-                header("location:/store/books-display-buy/viewcart.php?status=success");
+                //creating bill after order completion
+                $_SESSION["userorder"] = false;
+                //deleteAllCart();
+                header("location:/store/books-display-buy/bill.php?status=success");
             } else{
                 header("location:/store/books-display-buy/viewcart.php?status=emptycart");
               }

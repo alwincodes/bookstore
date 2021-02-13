@@ -5,7 +5,7 @@
    $userid =$_SESSION["uid"];
    ?>
      <?php
-      $sql="SELECT * from orders where uid =?;";
+      $sql="SELECT * from orders where uid =? order by bid DESC;";
       $products=getOrderUser($conn,$sql,$userid);
 
       if($products!==false){

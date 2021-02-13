@@ -57,7 +57,8 @@
             if($myreview == false){
                 
                 echo('
-             <h2>Post your review!</h2>
+             <h2>Post your review! (100 words)</h2>
+             
              <div class="reviewitem" >
                    <form action="/store/books-display-buy/review.php?bid='.$bid.'" method="post" style="height:200px">
                        <textarea placeholder="Post your review!" class="review_text_area" name="review" id="" cols="30" rows="10"></textarea>

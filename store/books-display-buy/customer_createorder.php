@@ -39,7 +39,8 @@
          }
 
          if(createOrder($conn,$bid,$uid,$pincode,$address,$city,$district,$state,$cname,$cphno,$cemail)) {
-            header("location:/store/books-display-buy/displaypage.php?bid=$bid&order=success");
+            $_SESSION["userorder"] = true;
+            header("location:/store/books-display-buy/bill.php?bid=$bid&order=success");
             }else{
                echo('<p style="text-align: center; color:red; font-weight:bold"> This item out of stock! or some error occured');
             }

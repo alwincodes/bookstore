@@ -35,6 +35,7 @@
          $index++;
        }
        echo('<a class="cartfns" href="/store/books-display-buy/cart_createorder.php?cart=buy">Order items</a>');
+      // echo(' <button onClick="window.print();" class="dropbtn">Print</button>');
        }else{
         echo("<h1>No items in cart!!<h1>");
        }

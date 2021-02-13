@@ -21,7 +21,7 @@
               echo("<p> Fill in all fields </p>");
             }
            if($_GET["error"]=="invaliduid"){
-        echo("<p> Invalid uid </p>");
+               echo("<p> Invalid uid </p>");
             }
             if($_GET["error"]=="invalidname"){
                 echo("<p> Enter a correct name </p>");

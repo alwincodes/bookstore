@@ -28,7 +28,7 @@ if(isset($_SESSION["auth"])){
 </header>
 <hr>
 <body>
-<img style = "height:300px;width:100%;text-align:center"src="/images/assets/dodge.jpg" alt="">
+<!--<img style = "height:300px;width:100%;text-align:center"src="/images/assets/dodge.jpg" alt=""> -->
 <h2 style = "text-align:center">
  Looks like you have just created a seller account and its not yet verified by our admin panel so kindly wait, this will not take more than a day
 </h2>
