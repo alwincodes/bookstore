@@ -362,6 +362,13 @@
   border-radius: 5px;
   color: #ffffff;
 }
+#order > .out_items{
+  padding: 15px 40px;
+  border: 1px solid rgb(212, 30, 23);
+  background-color: rgb(212, 30, 23);
+  border-radius: 5px;
+  color: #ffffff;
+}
 #order > .cart_items:hover{
   background-color: #ffffff;
   transition: ease-in-out;

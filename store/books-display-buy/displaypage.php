@@ -15,12 +15,18 @@
                     <p class="author_final">(<a href="https://www.google.com/search?q='.$bookdata['book_author'].'">'.$bookdata['book_author'].'</a>)</p>
                     <div id="product_final">
                     <img class="product_images_final"src="'.$bookdata['book_img'].'" alt="product image">
-                    <div id="order">
+                    <div id="order">');
+                    if($bookdata['book_stock'] > 0){
+                        echo('
                         <a class = "order_items"href="/store/books-display-buy/customer_createorder.php?bid='.$bookdata['bid'].'">Buy</a>
 
                         <a class = "cart_items"href="/store/books-display-buy/addtocart.php?cartbid='.$bookdata['bid'].'">Cart</a>
-                    </div>
-                    </div>
+                        ');
+                    }else{
+                        echo('<a class = "out_items" href="#">Out Of Stock !</a>');
+                    }
+        echo(' </div>
+               </div>
                 </div>
                 
                 <div class="prodinfo">

@@ -11,21 +11,27 @@ session_start();
      }
  }
  $items = [];
- if($_SESSION['userorder']==true){
-     $book['bid'] = $_GET['bid'];
-     array_push($items,$book);
+ if(isset($_SESSION['userorder'])){
+    if($_SESSION['userorder']==true){
+        $book['bid'] = $_GET['bid'];
+        array_push($items,$book);
+    }
+    else if($_SESSION['userorder']==false){
+        $items =  displayCart();
+        if($items == ""){
+            echo("<h1>error occured<h1>");
+            exit();
+        }
+        deleteAllCart();
+    }
+    else{
+        echo("Unautorised access");
+    }
+ }else{
+     echo("<h3>Illegal access</h3>");
+     exit();
  }
- else if($_SESSION['userorder']==false){
-     $items =  displayCart();
-     if($items == ""){
-         echo("<h1>error occured<h1>");
-         exit();
-     }
-     deleteAllCart();
- }
- else{
-     echo("Unautorised access");
- }
+ 
 ?>
 <!doctype html>
 <html>
