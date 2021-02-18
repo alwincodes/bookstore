@@ -249,6 +249,7 @@ session_start();
    <button onClick="pdf();" class="button">Download Pdf</button>
    </div>
     <script>
+    document.addEventListener("DOMContentLoaded",pdf)
     function pdf(){
         const bill = document.getElementById("bill");
         html2pdf().from(bill).save("bill")
