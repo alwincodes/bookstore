@@ -38,7 +38,8 @@ session_start();
 <head>
     <meta charset="utf-8">
     <title>Book Bill</title>
-    
+    <link rel="stylesheet" href="../../style/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
     <style>
     .invoice-box {
         max-width: 800px;
@@ -132,9 +133,11 @@ session_start();
         text-align: left;
     }
     </style>
+
 </head>
 
 <body>
+  <div id="bill">
     <div class="invoice-box">
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
@@ -241,10 +244,16 @@ session_start();
             </tr>
         </table>
     </div>
+   </div>
+   <div style="display:flex; justify-content:center; align-items:center">
+   <button onClick="pdf();" class="button">Download Pdf</button>
+   </div>
     <script>
-        document.addEventListener("DOMContentLoaded",()=>{
-            window.print();
-        });
+    function pdf(){
+        const bill = document.getElementById("bill");
+        html2pdf().from(bill).save("bill")
+    }
+
     </script>
 </body>
 </html>
